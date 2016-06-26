@@ -1,0 +1,21 @@
+.DS_Store
+*~.nib
+
+build/
+
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+xcuserdata
+
+# Xcode 5
+*.xcsettings
+*.xccheckout
+
+# Xcode 7
+*.xcscmblueprint
+
+*.irb-history
