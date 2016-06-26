@@ -7,23 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8269A7A1D202F7A00554E62 /* KeyboardInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8269A791D202F7A00554E62 /* KeyboardInterface.swift */; };
+		C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444F51D20540600E1E202 /* DCWindowController.swift */; };
+		C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */; };
 		C8CDA4AA1D1CB47E0002B3D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */; };
 		C8CDA4AD1D1CB47E0002B3D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDA4AC1D1CB47E0002B3D7 /* main.m */; };
-		C8CDA4B01D1CB47E0002B3D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDA4AF1D1CB47E0002B3D7 /* ViewController.m */; };
 		C8CDA4B21D1CB47E0002B3D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8CDA4B11D1CB47E0002B3D7 /* Assets.xcassets */; };
 		C8CDA4B51D1CB47E0002B3D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CDA4B31D1CB47E0002B3D7 /* Main.storyboard */; };
+		C8D200C11D1D971800765C6F /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200BC1D1D971800765C6F /* Either.swift */; };
+		C8D200C31D1D971800765C6F /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200BE1D1D971800765C6F /* Promise.swift */; };
+		C8D200C41D1D971800765C6F /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200BF1D1D971800765C6F /* Stream.swift */; };
+		C8D200C51D1D971800765C6F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C01D1D971800765C6F /* Timer.swift */; };
+		C8D200C71D1D973700765C6F /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C61D1D973700765C6F /* DCViewController.swift */; };
+		C8D200CA1D1D976000765C6F /* KeyCodeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C91D1D976000765C6F /* KeyCodeConverter.m */; };
+		C8D200CD1D1D9B1C00765C6F /* DCProcessSerialNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D200CC1D1D9B1C00765C6F /* DCProcessSerialNumber.m */; };
+		C8D200D01D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D200CF1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m */; };
+		C8D200D21D1DA31200765C6F /* KeyDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200D11D1DA31200765C6F /* KeyDestination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8269A791D202F7A00554E62 /* KeyboardInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInterface.swift; sourceTree = "<group>"; };
+		C89444F51D20540600E1E202 /* DCWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCWindowController.swift; sourceTree = "<group>"; };
+		C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRunningApplication+Getting.swift"; sourceTree = "<group>"; };
 		C8CDA4A51D1CB47E0002B3D7 /* KeyboardInput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardInput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CDA4A81D1CB47E0002B3D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C8CDA4AC1D1CB47E0002B3D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C8CDA4AE1D1CB47E0002B3D7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C8CDA4AF1D1CB47E0002B3D7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C8CDA4B11D1CB47E0002B3D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8CDA4B41D1CB47E0002B3D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8CDA4B61D1CB47E0002B3D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8D200BB1D1D971700765C6F /* KeyboardInput-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeyboardInput-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8D200BC1D1D971800765C6F /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		C8D200BE1D1D971800765C6F /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		C8D200BF1D1D971800765C6F /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		C8D200C01D1D971800765C6F /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		C8D200C61D1D973700765C6F /* DCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
+		C8D200C81D1D976000765C6F /* KeyCodeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyCodeConverter.h; sourceTree = "<group>"; };
+		C8D200C91D1D976000765C6F /* KeyCodeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyCodeConverter.m; sourceTree = "<group>"; };
+		C8D200CB1D1D9B1C00765C6F /* DCProcessSerialNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCProcessSerialNumber.h; sourceTree = "<group>"; };
+		C8D200CC1D1D9B1C00765C6F /* DCProcessSerialNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCProcessSerialNumber.m; sourceTree = "<group>"; };
+		C8D200CE1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunningApplication+ProcessSerialNumber.h"; sourceTree = "<group>"; };
+		C8D200CF1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunningApplication+ProcessSerialNumber.m"; sourceTree = "<group>"; };
+		C8D200D11D1DA31200765C6F /* KeyDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +62,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C89444F81D205AE200E1E202 /* Compost */ = {
+			isa = PBXGroup;
+			children = (
+				C8D200C81D1D976000765C6F /* KeyCodeConverter.h */,
+				C8D200C91D1D976000765C6F /* KeyCodeConverter.m */,
+			);
+			name = Compost;
+			sourceTree = "<group>";
+		};
+		C89444F91D205AF200E1E202 /* App Communication */ = {
+			isa = PBXGroup;
+			children = (
+				C8D200CB1D1D9B1C00765C6F /* DCProcessSerialNumber.h */,
+				C8D200CC1D1D9B1C00765C6F /* DCProcessSerialNumber.m */,
+				C8D200CE1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.h */,
+				C8D200CF1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m */,
+				C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */,
+			);
+			name = "App Communication";
+			sourceTree = "<group>";
+		};
+		C89444FA1D205B1F00E1E202 /* Sending Key Events */ = {
+			isa = PBXGroup;
+			children = (
+				C8269A791D202F7A00554E62 /* KeyboardInterface.swift */,
+				C8D200D11D1DA31200765C6F /* KeyDestination.swift */,
+			);
+			name = "Sending Key Events";
+			sourceTree = "<group>";
+		};
 		C8CDA49C1D1CB47E0002B3D7 = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +113,20 @@
 			children = (
 				C8CDA4A81D1CB47E0002B3D7 /* AppDelegate.h */,
 				C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */,
-				C8CDA4AE1D1CB47E0002B3D7 /* ViewController.h */,
-				C8CDA4AF1D1CB47E0002B3D7 /* ViewController.m */,
+				C89444F51D20540600E1E202 /* DCWindowController.swift */,
+				C8D200C61D1D973700765C6F /* DCViewController.swift */,
+				C89444FA1D205B1F00E1E202 /* Sending Key Events */,
+				C89444F91D205AF200E1E202 /* App Communication */,
+				C8D200BC1D1D971800765C6F /* Either.swift */,
+				C8D200BE1D1D971800765C6F /* Promise.swift */,
+				C8D200BF1D1D971800765C6F /* Stream.swift */,
+				C8D200C01D1D971800765C6F /* Timer.swift */,
+				C89444F81D205AE200E1E202 /* Compost */,
 				C8CDA4B11D1CB47E0002B3D7 /* Assets.xcassets */,
 				C8CDA4B31D1CB47E0002B3D7 /* Main.storyboard */,
 				C8CDA4B61D1CB47E0002B3D7 /* Info.plist */,
 				C8CDA4AB1D1CB47E0002B3D7 /* Supporting Files */,
+				C8D200BB1D1D971700765C6F /* KeyboardInput-Bridging-Header.h */,
 			);
 			path = KeyboardInput;
 			sourceTree = "<group>";
@@ -145,9 +208,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8CDA4B01D1CB47E0002B3D7 /* ViewController.m in Sources */,
+				C8D200D01D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m in Sources */,
+				C8269A7A1D202F7A00554E62 /* KeyboardInterface.swift in Sources */,
+				C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */,
+				C8D200C11D1D971800765C6F /* Either.swift in Sources */,
+				C8D200D21D1DA31200765C6F /* KeyDestination.swift in Sources */,
+				C8D200CA1D1D976000765C6F /* KeyCodeConverter.m in Sources */,
 				C8CDA4AD1D1CB47E0002B3D7 /* main.m in Sources */,
 				C8CDA4AA1D1CB47E0002B3D7 /* AppDelegate.m in Sources */,
+				C8D200C31D1D971800765C6F /* Promise.swift in Sources */,
+				C8D200C41D1D971800765C6F /* Stream.swift in Sources */,
+				C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */,
+				C8D200CD1D1D9B1C00765C6F /* DCProcessSerialNumber.m in Sources */,
+				C8D200C51D1D971800765C6F /* Timer.swift in Sources */,
+				C8D200C71D1D973700765C6F /* DCViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,11 +324,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = KeyboardInput/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidcairns.KeyboardInput;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KeyboardInput/KeyboardInput-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -262,11 +339,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = KeyboardInput/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidcairns.KeyboardInput;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KeyboardInput/KeyboardInput-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -289,6 +368,7 @@
 				C8CDA4BB1D1CB47E0002B3D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
