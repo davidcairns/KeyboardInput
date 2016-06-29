@@ -16,7 +16,8 @@ final class KeyDestination {
   }
 
   func post(keyCode: UInt16, flags: CGEventFlags = CGEventFlags(rawValue: 0)!, isDown: Bool) {
-    // Post a key-down, followed by a key-up.
+    // Create an key event with this code (& flags) and post it to our app’s process.
+//    TODO: Create key events using CGSCreateKeyboardEventOfLength? (I have gotten warnings in the console about this…) --DRC
     let keyEvent: CGEventRef = CGEventCreateKeyboardEvent(nil, CGKeyCode(keyCode), isDown)!
     CGEventSetFlags(keyEvent, flags)
     CGEventPostToPSN(self.app.processSerialNumber.ptr(), keyEvent)

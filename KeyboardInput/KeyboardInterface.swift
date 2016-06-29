@@ -355,79 +355,83 @@ enum Key {
     case "/":            return .Slash
     case "N":            return .N
     case "M":            return .M
+    default: break
+    }
+
+    switch string {
     case ".":            return .Period
-    case "Grave":            return .Grave
-    case "KeypadDecimal":            return .KeypadDecimal
-    case "KeypadMultiply":           return .KeypadMultiply
-    case "KeypadPlus":           return .KeypadPlus
-    case "KeypadClear":          return .KeypadClear
-    case "KeypadDivide":         return .KeypadDivide
-    case "KeypadEnter":          return .KeypadEnter
-    case "KeypadMinus":          return .KeypadMinus
-    case "KeypadEquals":         return .KeypadEquals
-    case "Keypad0":          return .Keypad0
-    case "Keypad1":          return .Keypad1
-    case "Keypad2":          return .Keypad2
-    case "Keypad3":          return .Keypad3
-    case "Keypad4":          return .Keypad4
-    case "Keypad5":          return .Keypad5
-    case "Keypad6":          return .Keypad6
-    case "Keypad7":          return .Keypad7
-    case "Keypad8":          return .Keypad8
-    case "Keypad9":          return .Keypad9
+    case "<Grave>":            return .Grave
+    case "<KeypadDecimal>":            return .KeypadDecimal
+    case "<KeypadMultiply>":           return .KeypadMultiply
+    case "<KeypadPlus>":           return .KeypadPlus
+    case "<KeypadClear>":          return .KeypadClear
+    case "<KeypadDivide>":         return .KeypadDivide
+    case "<KeypadEnter>":          return .KeypadEnter
+    case "<KeypadMinus>":          return .KeypadMinus
+    case "<KeypadEquals>":         return .KeypadEquals
+    case "<Keypad0>":          return .Keypad0
+    case "<Keypad1>":          return .Keypad1
+    case "<Keypad2>":          return .Keypad2
+    case "<Keypad3>":          return .Keypad3
+    case "<Keypad4>":          return .Keypad4
+    case "<Keypad5>":          return .Keypad5
+    case "<Keypad6>":          return .Keypad6
+    case "<Keypad7>":          return .Keypad7
+    case "<Keypad8>":          return .Keypad8
+    case "<Keypad9>":          return .Keypad9
 
       /* keycodes for keys that are independent of keyboard layout*/
-    case "Return":           return .Return
-    case "Tab":          return .Tab
-    case "Space":            return .Space
-    case "Delete":           return .Delete
-    case "Escape":           return .Escape
-    case "Command":          return .Command
-    case "Shift":            return .Shift
-    case "CapsLock":         return .CapsLock
-    case "Option":           return .Option
-    case "Control":          return .Control
-    case "RightShift":           return .RightShift
-    case "RightOption":          return .RightOption
-    case "RightControl":         return .RightControl
-    case "Function":         return .Function
-    case "F17":          return .F17
-    case "VolumeUp":         return .VolumeUp
-    case "VolumeDown":           return .VolumeDown
-    case "Mute":         return .Mute
-    case "F18":          return .F18
-    case "F19":          return .F19
-    case "F20":          return .F20
-    case "F5":           return .F5
-    case "F6":           return .F6
-    case "F7":           return .F7
-    case "F3":           return .F3
-    case "F8":           return .F8
-    case "F9":           return .F9
-    case "F11":          return .F11
-    case "F13":          return .F13
-    case "F16":          return .F16
-    case "F14":          return .F14
-    case "F10":          return .F10
-    case "F12":          return .F12
-    case "F15":          return .F15
-    case "Help":         return .Help
-    case "Home":         return .Home
-    case "PageUp":           return .PageUp
-    case "ForwardDelete":            return .ForwardDelete
-    case "F4":           return .F4
-    case "End":          return .End
-    case "F2":           return .F2
-    case "PageDown":         return .PageDown
-    case "F1":           return .F1
-    case "LeftArrow":            return .LeftArrow
-    case "RightArrow":           return .RightArrow
-    case "DownArrow":            return .DownArrow
-    case "UpArrow":          return .UpArrow
+    case "<Return>":           return .Return
+    case "<Tab>":              return .Tab
+    case " >":            return .Space
+    case "<Delete>":           return .Delete
+    case "<Escape>":           return .Escape
+    case "<Command>":          return .Command
+    case "<Shift>":            return .Shift
+    case "<CapsLock>":         return .CapsLock
+    case "<Option>":           return .Option
+    case "<Control>":          return .Control
+    case "<RightShift>":           return .RightShift
+    case "<RightOption>":          return .RightOption
+    case "<RightControl>":         return .RightControl
+    case "<Function>":         return .Function
+    case "<F17>":          return .F17
+    case "<VolumeUp>":         return .VolumeUp
+    case "<VolumeDown>":           return .VolumeDown
+    case "<Mute>":         return .Mute
+    case "<F18>":          return .F18
+    case "<F19>":          return .F19
+    case "<F20>":          return .F20
+    case "<F5>":           return .F5
+    case "<F6>":           return .F6
+    case "<F7>":           return .F7
+    case "<F3>":           return .F3
+    case "<F8>":           return .F8
+    case "<F9>":           return .F9
+    case "<F11>":          return .F11
+    case "<F13>":          return .F13
+    case "<F16>":          return .F16
+    case "<F14>":          return .F14
+    case "<F10>":          return .F10
+    case "<F12>":          return .F12
+    case "<F15>":          return .F15
+    case "<Help>":         return .Help
+    case "<Home>":         return .Home
+    case "<PageUp>":           return .PageUp
+    case "<ForwardDelete>":            return .ForwardDelete
+    case "<F4>":           return .F4
+    case "<End>":          return .End
+    case "<F2>":           return .F2
+    case "<PageDown>":         return .PageDown
+    case "<F1>":           return .F1
+    case "<LeftArrow>":            return .LeftArrow
+    case "<RightArrow>":           return .RightArrow
+    case "<DownArrow>":            return .DownArrow
+    case "<UpArrow>":          return .UpArrow
 
     // The following were discovered using the Key Codes app
-    case "Backspace":            return .Backspace
-    case "Enter":            return .Enter
+    case "<Backspace>":            return .Backspace
+    case "<Enter>":            return .Enter
     case "<":            return .LessThan
     case ">":            return .GreaterThan
     case "{":            return .LeftBrace
@@ -498,6 +502,12 @@ struct KeyPress {
   }
 
   static func from(string string: String) -> [KeyPress] {
+    // If this is a special key or a specific letter, convert directly to that Key.
+    if let key = Key.from(string: string) {
+      return [KeyPress(key: key, modifiers: [])]
+    }
+
+    // Otherwise, this is just some word; handle it like a series of characters.
     let characters: String.CharacterView = string.characters
     return characters.flatMap { character in
       KeyPress.from(character: character)
@@ -545,7 +555,7 @@ final class Keyboard {
     }
   }
   func handleKeyPress(keyPress: KeyPress) {
-//    print(" Handling a '\(keyPress.key)' with \(keyPress.modifiers.count) modifier(s)...")
+    print(" Handling a '\(keyPress.key)' with \(keyPress.modifiers.count) modifier(s)...")
 
     // First see if we should release any currently-held modifiers.
     for modifierKey in self.currentlyHeldModifiers {
