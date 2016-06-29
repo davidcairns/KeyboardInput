@@ -14,7 +14,7 @@ public final class CommandProcessor {
 
   private var currentWord: String = ""
 
-  private var currentTransformer: TextTransformer?
+  private var currentTextHandler: TextHandler?
   let commandRecognizers: [CommandRecognizer]
 
   init(commandRecognizers: [CommandRecognizer]) {
@@ -34,8 +34,8 @@ public final class CommandProcessor {
 
   func handleWord(word: String) {
     // If we already have a transformer, continue to use it!
-    if let currentTransformer = self.currentTransformer {
-      let transformed = currentTransformer.transform(word)
+    if let currentTextHandler = self.currentTextHandler {
+      let transformed = currentTextHandler.handle(word)
       self.outputStream.emit(transformed)
     }
       // Otherwise, we need to check all of our command recognizers to see if any of them
@@ -44,12 +44,12 @@ public final class CommandProcessor {
       for recognizer in self.commandRecognizers {
         let result = recognizer.handle(word)
         switch result {
-        case .Recognizing(let transformer):
+        case .Recognizing(let textHandler):
           // Use the recognizer from here on out (but not for the instigating command word!)!
-          self.currentTransformer = transformer
-        case .Recognized(let transformer):
+          self.currentTextHandler = textHandler
+        case .Recognized(let textHandler):
           // Just use this recognizer as a one-shot!
-          let transformed = transformer.transform(word)
+          let transformed = textHandler.handle(word)
           self.outputStream.emit(transformed)
         default: break
         }
@@ -57,8 +57,8 @@ public final class CommandProcessor {
     }
   }
   func handleBreak() {
-    // Breaks always terminates our current transformer.
-    self.currentTransformer = nil
+    // Breaks always terminates our current text handler.
+    self.currentTextHandler = nil
   }
 
 

@@ -9,12 +9,12 @@
 import Foundation
 
 public class CommandRecognizer {
-  let transformer: TextTransformer! = nil
+  let textHandler: TextHandler! = nil
 
   enum RecognitionResult {
     case NotRecognized
-    case Recognizing(TextTransformer)
-    case Recognized(TextTransformer)
+    case Recognizing(TextHandler)
+    case Recognized(TextHandler)
   }
 
   /* Override point! */
@@ -48,17 +48,18 @@ class SingleMatchRecognizer : CommandRecognizer {
  */
 class ContinuousCommandRecognizer : CommandRecognizer {
   let command: String
-  let transform: String -> String
-  init(command: String, transform: String -> String) {
+  let makeHandlerBlock: () -> TextHandler
+
+  init(command: String, makeHandlerBlock: () -> TextHandler) {
     self.command = command
-    self.transform = transform
+    self.makeHandlerBlock = makeHandlerBlock
     super.init()
   }
 
   override func handle(word: String) -> CommandRecognizer.RecognitionResult {
     if self.command == word.lowercaseString {
       print("{COMMAND \(word)}", terminator:"")
-      return .Recognizing(TextTransformer(transform: self.transform))
+      return .Recognizing(self.makeHandlerBlock())
     }
     return .NotRecognized
   }

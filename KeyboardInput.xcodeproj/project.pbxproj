@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C8269A7A1D202F7A00554E62 /* KeyboardInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8269A791D202F7A00554E62 /* KeyboardInterface.swift */; };
+		C8269A7A1D202F7A00554E62 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8269A791D202F7A00554E62 /* Keyboard.swift */; };
 		C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444F51D20540600E1E202 /* DCWindowController.swift */; };
 		C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */; };
 		C8CDA4AA1D1CB47E0002B3D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */; };
@@ -29,10 +29,14 @@
 		C8D98B071D24772E007793F2 /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B061D24772E007793F2 /* Array+Helpers.swift */; };
 		C8D98B091D247745007793F2 /* CommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B081D247745007793F2 /* CommandProcessor.swift */; };
 		C8D98B0B1D24778D007793F2 /* VimCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B0A1D24778D007793F2 /* VimCommands.swift */; };
+		C8D98B101D248083007793F2 /* Character+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B0F1D248083007793F2 /* Character+Helpers.swift */; };
+		C8D98B121D24809C007793F2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B111D24809C007793F2 /* Key.swift */; };
+		C8D98B141D2480AA007793F2 /* ModifierKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B131D2480AA007793F2 /* ModifierKey.swift */; };
+		C8D98B161D2480CA007793F2 /* KeyPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B151D2480CA007793F2 /* KeyPress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C8269A791D202F7A00554E62 /* KeyboardInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInterface.swift; sourceTree = "<group>"; };
+		C8269A791D202F7A00554E62 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		C89444F51D20540600E1E202 /* DCWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCWindowController.swift; sourceTree = "<group>"; };
 		C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRunningApplication+Getting.swift"; sourceTree = "<group>"; };
 		C8CDA4A51D1CB47E0002B3D7 /* KeyboardInput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardInput.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,10 @@
 		C8D98B061D24772E007793F2 /* Array+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
 		C8D98B081D247745007793F2 /* CommandProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandProcessor.swift; sourceTree = "<group>"; };
 		C8D98B0A1D24778D007793F2 /* VimCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimCommands.swift; sourceTree = "<group>"; };
+		C8D98B0F1D248083007793F2 /* Character+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Helpers.swift"; sourceTree = "<group>"; };
+		C8D98B111D24809C007793F2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		C8D98B131D2480AA007793F2 /* ModifierKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifierKey.swift; sourceTree = "<group>"; };
+		C8D98B151D2480CA007793F2 /* KeyPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +106,10 @@
 		C89444FA1D205B1F00E1E202 /* Sending Key Events */ = {
 			isa = PBXGroup;
 			children = (
-				C8269A791D202F7A00554E62 /* KeyboardInterface.swift */,
+				C8D98B111D24809C007793F2 /* Key.swift */,
+				C8D98B131D2480AA007793F2 /* ModifierKey.swift */,
+				C8D98B151D2480CA007793F2 /* KeyPress.swift */,
+				C8269A791D202F7A00554E62 /* Keyboard.swift */,
 				C8D200D11D1DA31200765C6F /* KeyDestination.swift */,
 			);
 			name = "Sending Key Events";
@@ -123,12 +134,10 @@
 		C8CDA4A71D1CB47E0002B3D7 /* KeyboardInput */ = {
 			isa = PBXGroup;
 			children = (
-				C8CDA4A81D1CB47E0002B3D7 /* AppDelegate.h */,
-				C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */,
-				C89444F51D20540600E1E202 /* DCWindowController.swift */,
-				C8D200C61D1D973700765C6F /* DCViewController.swift */,
 				C8D98B0A1D24778D007793F2 /* VimCommands.swift */,
-				C8D98B0D1D24784B007793F2 /* Command Processing */,
+				C8D98B081D247745007793F2 /* CommandProcessor.swift */,
+				C8D98B0E1D247BD6007793F2 /* Mac OS X-specific */,
+				C8D98B0D1D24784B007793F2 /* Text Processing */,
 				C89444FA1D205B1F00E1E202 /* Sending Key Events */,
 				C89444F91D205AF200E1E202 /* App Communication */,
 				C8D98B0C1D2477F0007793F2 /* Streams & Bits & Bobs */,
@@ -154,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C8D98B061D24772E007793F2 /* Array+Helpers.swift */,
+				C8D98B0F1D248083007793F2 /* Character+Helpers.swift */,
 				C8D200BC1D1D971800765C6F /* Either.swift */,
 				C8D200BE1D1D971800765C6F /* Promise.swift */,
 				C8D200BF1D1D971800765C6F /* Stream.swift */,
@@ -162,15 +172,25 @@
 			name = "Streams & Bits & Bobs";
 			sourceTree = "<group>";
 		};
-		C8D98B0D1D24784B007793F2 /* Command Processing */ = {
+		C8D98B0D1D24784B007793F2 /* Text Processing */ = {
 			isa = PBXGroup;
 			children = (
-				C8D98B081D247745007793F2 /* CommandProcessor.swift */,
 				C8D98B001D2476EA007793F2 /* TextTransformer.swift */,
-				C8D98B021D247709007793F2 /* CommandRecognizer.swift */,
 				C8D98B041D247721007793F2 /* InputElement.swift */,
+				C8D98B021D247709007793F2 /* CommandRecognizer.swift */,
 			);
-			name = "Command Processing";
+			name = "Text Processing";
+			sourceTree = "<group>";
+		};
+		C8D98B0E1D247BD6007793F2 /* Mac OS X-specific */ = {
+			isa = PBXGroup;
+			children = (
+				C8CDA4A81D1CB47E0002B3D7 /* AppDelegate.h */,
+				C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */,
+				C89444F51D20540600E1E202 /* DCWindowController.swift */,
+				C8D200C61D1D973700765C6F /* DCViewController.swift */,
+			);
+			name = "Mac OS X-specific";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,16 +264,19 @@
 			files = (
 				C8D200D01D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m in Sources */,
 				C8D98B091D247745007793F2 /* CommandProcessor.swift in Sources */,
-				C8269A7A1D202F7A00554E62 /* KeyboardInterface.swift in Sources */,
+				C8269A7A1D202F7A00554E62 /* Keyboard.swift in Sources */,
 				C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */,
+				C8D98B101D248083007793F2 /* Character+Helpers.swift in Sources */,
 				C8D200C11D1D971800765C6F /* Either.swift in Sources */,
 				C8D200D21D1DA31200765C6F /* KeyDestination.swift in Sources */,
 				C8D200CA1D1D976000765C6F /* KeyCodeConverter.m in Sources */,
 				C8CDA4AD1D1CB47E0002B3D7 /* main.m in Sources */,
 				C8CDA4AA1D1CB47E0002B3D7 /* AppDelegate.m in Sources */,
 				C8D98B011D2476EA007793F2 /* TextTransformer.swift in Sources */,
+				C8D98B141D2480AA007793F2 /* ModifierKey.swift in Sources */,
 				C8D98B0B1D24778D007793F2 /* VimCommands.swift in Sources */,
 				C8D98B031D247709007793F2 /* CommandRecognizer.swift in Sources */,
+				C8D98B121D24809C007793F2 /* Key.swift in Sources */,
 				C8D200C31D1D971800765C6F /* Promise.swift in Sources */,
 				C8D200C41D1D971800765C6F /* Stream.swift in Sources */,
 				C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */,
@@ -262,6 +285,7 @@
 				C8D200CD1D1D9B1C00765C6F /* DCProcessSerialNumber.m in Sources */,
 				C8D200C51D1D971800765C6F /* Timer.swift in Sources */,
 				C8D200C71D1D973700765C6F /* DCViewController.swift in Sources */,
+				C8D98B161D2480CA007793F2 /* KeyPress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
