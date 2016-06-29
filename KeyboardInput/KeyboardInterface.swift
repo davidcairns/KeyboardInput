@@ -555,7 +555,7 @@ final class Keyboard {
     }
   }
   func handleKeyPress(keyPress: KeyPress) {
-    print(" Handling a '\(keyPress.key)' with \(keyPress.modifiers.count) modifier(s)...")
+//    print(" Handling a '\(keyPress.key)' with \(keyPress.modifiers.count) modifier(s)...")
 
     // First see if we should release any currently-held modifiers.
     for modifierKey in self.currentlyHeldModifiers {

@@ -21,7 +21,7 @@ public final class DCViewController : NSViewController {
     self.commandProcessor = CommandProcessor(commandRecognizers: VimCompatibleCommands)
 
     // Connect our command processor’s output stream.
-   // ENABLE THESE LINES FOR WRITING TO TERMINAL!!!
+    // ENABLE THESE LINES FOR WRITING TO TERMINAL!!!
     let keyboardOutStream: Stream<String> = {
       let stream = Stream<String>()
       let keyboard = Keyboard(destination: KeyDestination(app: GetTerminalApp()))
