@@ -58,7 +58,7 @@ class ContinuousCommandRecognizer : CommandRecognizer {
 
   override func handle(word: String) -> CommandRecognizer.RecognitionResult {
     if self.command == word.lowercaseString {
-      print("{COMMAND \(word)}", terminator:"")
+//      print("{COMMAND \(word)}", terminator:"")
       return .Recognizing(self.makeHandlerBlock())
     }
     return .NotRecognized

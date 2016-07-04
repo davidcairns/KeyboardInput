@@ -32,7 +32,7 @@ public final class CommandProcessor {
   }
 
 
-  func handleWord(word: String) {
+  private func handleWord(word: String) {
     // If we already have a transformer, continue to use it!
     if let currentTextHandler = self.currentTextHandler {
       let transformed = currentTextHandler.handle(word)
@@ -44,36 +44,37 @@ public final class CommandProcessor {
       for recognizer in self.commandRecognizers {
         let result = recognizer.handle(word)
         switch result {
-        case .Recognizing(let textHandler):
-          // Use the recognizer from here on out (but not for the instigating command word!)!
-          self.currentTextHandler = textHandler
-        case .Recognized(let textHandler):
-          // Just use this recognizer as a one-shot!
-          let transformed = textHandler.handle(word)
-          self.outputStream.emit(transformed)
-        default: break
+          case .Recognizing(let textHandler):
+            // Use the recognizer from here on out (but not for the instigating command word!)!
+            self.currentTextHandler = textHandler
+          case .Recognized(let textHandler):
+            // Just use this recognizer as a one-shot!
+            let transformed = textHandler.handle(word)
+            self.outputStream.emit(transformed)
+          default: break
         }
       }
     }
   }
-  func handleBreak() {
+  private func handleBreak() {
     // Breaks always terminates our current text handler.
     self.currentTextHandler = nil
   }
 
 
   // MARK: -
-  func flushCurrentWord() {
+  public func flushCurrentWord() {
     self.caughtWord(self.currentWord)
     self.currentWord = ""
   }
-  func caughtWord(word: String) {
+  public func caughtWord(word: String) {
     print("<\(word)>", terminator: "")
     let strippedWord = word.stringByReplacingOccurrencesOfString(" ", withString: "")
     self.inputStream.emit(InputElement.Word(strippedWord))
   }
 
   func appendCharacter(string: String) {
+//    print("\(string).")
     // See if we've just finished a word!
     let currentLength = self.currentWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
     if currentLength != 0 && string == " " {

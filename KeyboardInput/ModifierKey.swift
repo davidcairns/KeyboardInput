@@ -9,7 +9,7 @@
 import Foundation
 
 // This enum just wraps some of the Keys so we can specify when something should definitely only be a modifier.
-enum ModifierKey {
+public enum ModifierKey {
   case Command
   case Shift
   case CapsLock

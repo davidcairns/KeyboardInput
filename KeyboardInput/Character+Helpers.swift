@@ -10,9 +10,7 @@ import Foundation
 
 extension Character {
   public var isUpper: Bool {
-    return String(self) == String(self).uppercaseString
-  }
-  public var isLower: Bool {
-    return String(self) == String(self).lowercaseString
+    let s = String(self)
+    return s >= "A" && s <= "Z"
   }
 }

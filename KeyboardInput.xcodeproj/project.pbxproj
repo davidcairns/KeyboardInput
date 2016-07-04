@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C801C45D1D29EAFA005AB7E4 /* TextTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C801C45C1D29EAFA005AB7E4 /* TextTransformerTests.swift */; };
 		C8269A7A1D202F7A00554E62 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8269A791D202F7A00554E62 /* Keyboard.swift */; };
 		C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444F51D20540600E1E202 /* DCWindowController.swift */; };
 		C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */; };
@@ -33,9 +34,28 @@
 		C8D98B121D24809C007793F2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B111D24809C007793F2 /* Key.swift */; };
 		C8D98B141D2480AA007793F2 /* ModifierKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B131D2480AA007793F2 /* ModifierKey.swift */; };
 		C8D98B161D2480CA007793F2 /* KeyPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B151D2480CA007793F2 /* KeyPress.swift */; };
+		C8D98B281D249B87007793F2 /* CommandRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B171D249B3B007793F2 /* CommandRecognizerTests.swift */; };
+		C8D98B2A1D249C39007793F2 /* InputElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B041D247721007793F2 /* InputElement.swift */; };
+		C8D98B2B1D249C3E007793F2 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200BF1D1D971800765C6F /* Stream.swift */; };
+		C8D98B2C1D249C44007793F2 /* CommandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B021D247709007793F2 /* CommandRecognizer.swift */; };
+		C8D98B2D1D249C47007793F2 /* TextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B001D2476EA007793F2 /* TextTransformer.swift */; };
+		C8D98B2E1D249D07007793F2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C01D1D971800765C6F /* Timer.swift */; };
+		C8D98B2F1D249D0A007793F2 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200BC1D1D971800765C6F /* Either.swift */; };
+		C8D98B311D24A370007793F2 /* KeyPressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B301D24A370007793F2 /* KeyPressTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C8D98B231D249B6C007793F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8CDA49D1D1CB47E0002B3D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8CDA4A41D1CB47E0002B3D7;
+			remoteInfo = KeyboardInput;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C801C45C1D29EAFA005AB7E4 /* TextTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTransformerTests.swift; sourceTree = "<group>"; };
 		C8269A791D202F7A00554E62 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		C89444F51D20540600E1E202 /* DCWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCWindowController.swift; sourceTree = "<group>"; };
 		C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRunningApplication+Getting.swift"; sourceTree = "<group>"; };
@@ -69,10 +89,21 @@
 		C8D98B111D24809C007793F2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		C8D98B131D2480AA007793F2 /* ModifierKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifierKey.swift; sourceTree = "<group>"; };
 		C8D98B151D2480CA007793F2 /* KeyPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPress.swift; sourceTree = "<group>"; };
+		C8D98B171D249B3B007793F2 /* CommandRecognizerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRecognizerTests.swift; sourceTree = "<group>"; };
+		C8D98B1E1D249B6C007793F2 /* KeyboardInputTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardInputTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D98B221D249B6C007793F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8D98B301D24A370007793F2 /* KeyPressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPressTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C8CDA4A21D1CB47E0002B3D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8D98B1B1D249B6C007793F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -119,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C8CDA4A71D1CB47E0002B3D7 /* KeyboardInput */,
+				C8D98B1F1D249B6C007793F2 /* KeyboardInputTests */,
 				C8CDA4A61D1CB47E0002B3D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				C8CDA4A51D1CB47E0002B3D7 /* KeyboardInput.app */,
+				C8D98B1E1D249B6C007793F2 /* KeyboardInputTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +226,17 @@
 			name = "Mac OS X-specific";
 			sourceTree = "<group>";
 		};
+		C8D98B1F1D249B6C007793F2 /* KeyboardInputTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8D98B171D249B3B007793F2 /* CommandRecognizerTests.swift */,
+				C8D98B301D24A370007793F2 /* KeyPressTests.swift */,
+				C801C45C1D29EAFA005AB7E4 /* TextTransformerTests.swift */,
+				C8D98B221D249B6C007793F2 /* Info.plist */,
+			);
+			path = KeyboardInputTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,17 +257,40 @@
 			productReference = C8CDA4A51D1CB47E0002B3D7 /* KeyboardInput.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C8D98B1D1D249B6C007793F2 /* KeyboardInputTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8D98B251D249B6C007793F2 /* Build configuration list for PBXNativeTarget "KeyboardInputTests" */;
+			buildPhases = (
+				C8D98B1A1D249B6C007793F2 /* Sources */,
+				C8D98B1B1D249B6C007793F2 /* Frameworks */,
+				C8D98B1C1D249B6C007793F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8D98B241D249B6C007793F2 /* PBXTargetDependency */,
+			);
+			name = KeyboardInputTests;
+			productName = KeyboardInputTests;
+			productReference = C8D98B1E1D249B6C007793F2 /* KeyboardInputTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C8CDA49D1D1CB47E0002B3D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "David Cairns";
 				TargetAttributes = {
 					C8CDA4A41D1CB47E0002B3D7 = {
 						CreatedOnToolsVersion = 7.3.1;
+					};
+					C8D98B1D1D249B6C007793F2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = C8CDA4A41D1CB47E0002B3D7;
 					};
 				};
 			};
@@ -241,6 +308,7 @@
 			projectRoot = "";
 			targets = (
 				C8CDA4A41D1CB47E0002B3D7 /* KeyboardInput */,
+				C8D98B1D1D249B6C007793F2 /* KeyboardInputTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +320,13 @@
 			files = (
 				C8CDA4B21D1CB47E0002B3D7 /* Assets.xcassets in Resources */,
 				C8CDA4B51D1CB47E0002B3D7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8D98B1C1D249B6C007793F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +364,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8D98B1A1D249B6C007793F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8D98B2F1D249D0A007793F2 /* Either.swift in Sources */,
+				C8D98B281D249B87007793F2 /* CommandRecognizerTests.swift in Sources */,
+				C8D98B2E1D249D07007793F2 /* Timer.swift in Sources */,
+				C8D98B2D1D249C47007793F2 /* TextTransformer.swift in Sources */,
+				C8D98B2C1D249C44007793F2 /* CommandRecognizer.swift in Sources */,
+				C8D98B2A1D249C39007793F2 /* InputElement.swift in Sources */,
+				C8D98B311D24A370007793F2 /* KeyPressTests.swift in Sources */,
+				C801C45D1D29EAFA005AB7E4 /* TextTransformerTests.swift in Sources */,
+				C8D98B2B1D249C3E007793F2 /* Stream.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8D98B241D249B6C007793F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8CDA4A41D1CB47E0002B3D7 /* KeyboardInput */;
+			targetProxy = C8D98B231D249B6C007793F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C8CDA4B31D1CB47E0002B3D7 /* Main.storyboard */ = {
@@ -413,6 +512,33 @@
 			};
 			name = Release;
 		};
+		C8D98B261D249B6C007793F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KeyboardInputTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidcairns.KeyboardInputTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyboardInput.app/Contents/MacOS/KeyboardInput";
+			};
+			name = Debug;
+		};
+		C8D98B271D249B6C007793F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KeyboardInputTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidcairns.KeyboardInputTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyboardInput.app/Contents/MacOS/KeyboardInput";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -430,6 +556,15 @@
 			buildConfigurations = (
 				C8CDA4BA1D1CB47E0002B3D7 /* Debug */,
 				C8CDA4BB1D1CB47E0002B3D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8D98B251D249B6C007793F2 /* Build configuration list for PBXNativeTarget "KeyboardInputTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8D98B261D249B6C007793F2 /* Debug */,
+				C8D98B271D249B6C007793F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

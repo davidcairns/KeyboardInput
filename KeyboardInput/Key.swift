@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Key {
+public enum Key {
   case A
   case S
   case D
@@ -294,6 +294,33 @@ enum Key {
     }
   }
 
+  var needsShift: Bool {
+    switch self {
+      case .Quote:                    fallthrough
+      case .LessThan:                 fallthrough
+      case .GreaterThan:              fallthrough
+      case .LeftBrace:                fallthrough
+      case .RightBrace:               fallthrough
+      case .RightParen:               fallthrough
+      case .LeftParen:                fallthrough
+      case .Bang:                     fallthrough
+      case .Pipe:                     fallthrough
+      case .Colon:                    fallthrough
+      case .Ampersand:                fallthrough
+      case .Percent:                  fallthrough
+      case .QuestionMark:             fallthrough
+      case .Splat:                    fallthrough
+      case .Tilde:                    fallthrough
+      case .At:                       fallthrough
+      case .Dollar:                   fallthrough
+      case .Caret:                    fallthrough
+      case .Plus:                     fallthrough
+      case .Hash:                                 return true
+
+      default: return false
+    }
+  }
+
   static func from(character character: Character) -> Key? {
     return from(string: String(character))
   }
@@ -370,10 +397,10 @@ enum Key {
     case "<Keypad8>":           return .Keypad8
     case "<Keypad9>":           return .Keypad9
 
-      /* keycodes for keys that are independent of keyboard layout*/
+    /* keycodes for keys that are independent of keyboard layout*/
     case "<Return>":            return .Return
     case "<Tab>":               return .Tab
-    case " >":                  return .Space
+    case " ":                  return .Space
     case "<Delete>":            return .Delete
     case "<Escape>":            return .Escape
     case "<Command>":           return .Command

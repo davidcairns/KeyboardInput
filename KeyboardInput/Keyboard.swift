@@ -23,7 +23,7 @@ final class Keyboard {
     }
   }
   func handleKeyPress(keyPress: KeyPress) {
-    print(" Handling a '\(keyPress.key)' with \(keyPress.modifiers.count) modifier(s)...")
+//    print(" Handling a '\(keyPress.key)' with \(keyPress.modifiers.count) modifier(s)...")
 
     // First see if we should release any currently-held modifiers.
     for modifierKey in self.currentlyHeldModifiers {
@@ -55,12 +55,12 @@ final class Keyboard {
   func press(key key: Key) {
     let flags = ModifierKey.ToFlags(self.currentlyHeldModifiers)
     self.destination.post(key.keyCode, flags: flags, isDown: true)
-    print("pressed \(key) (\(key.keyCode))")
+//    print("pressed \(key) (\(key.keyCode))")
   }
 
   func release(key key: Key) {
     let flags = ModifierKey.ToFlags(self.currentlyHeldModifiers)
     self.destination.post(key.keyCode, flags: flags, isDown: false)
-    print("released \(key) (\(key.keyCode))")
+//    print("released \(key) (\(key.keyCode))")
   }
 }

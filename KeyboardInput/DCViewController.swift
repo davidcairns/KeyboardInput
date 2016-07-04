@@ -13,6 +13,7 @@ func GetTerminalApp() -> NSRunningApplication! {
   return NSRunningApplication.app(withBundleIdentifier: "com.apple.Terminal")
 }
 
+let AUTO_BREAK_TIME = 1.0
 
 public final class DCViewController : NSViewController {
   let commandProcessor: CommandProcessor
@@ -29,7 +30,7 @@ public final class DCViewController : NSViewController {
       return stream
     }()
     self.commandProcessor.outputStream.subscribe(keyboardOutStream)
-    self.commandProcessor.outputStream.subscribe { print("\($0)", terminator: "") }
+//    self.commandProcessor.outputStream.subscribe { print("\($0)", terminator: "") }
 
     super.init(coder: coder)
   }
@@ -56,7 +57,7 @@ public final class DCViewController : NSViewController {
 
   // MARK: - "Break" timer
   class func scheduledBreakTimer(on on: DCViewController) -> NSTimer {
-    return NSTimer.scheduledTimerWithTimeInterval(1.0, target: on, selector: #selector(DCViewController.insertBreak), userInfo: nil, repeats: false)
+    return NSTimer.scheduledTimerWithTimeInterval(AUTO_BREAK_TIME, target: on, selector: #selector(DCViewController.insertBreak), userInfo: nil, repeats: false)
   }
   func rescheduleBreakTimer() {
     if let t = self.breakTimer { t.invalidate() }
