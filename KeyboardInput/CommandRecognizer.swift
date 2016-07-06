@@ -24,7 +24,7 @@ public class CommandRecognizer {
 /*  Whenever an instance recognizes, it produces some result. This command
  *  recognizer is basically just a simple mapping
  */
-class SingleMatchRecognizer : CommandRecognizer {
+final class SingleMatchRecognizer : CommandRecognizer {
   let string: String
   let result: String
   init(string: String, thenProduce result: String) {
@@ -46,7 +46,7 @@ class SingleMatchRecognizer : CommandRecognizer {
  *  transformation operation to the whole string of text, the result of which is sent to
  *  the output.
  */
-class ContinuousCommandRecognizer : CommandRecognizer {
+final class ContinuousCommandRecognizer : CommandRecognizer {
   let command: String
   let makeHandlerBlock: () -> TextHandler
 

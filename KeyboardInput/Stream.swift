@@ -115,7 +115,7 @@ public func <~ <T> (lhs: Signal<T>, rhs: T) {
 }
 
 
-public class SequenceStream <T> : Stream <T> {
+public final class SequenceStream <T> : Stream <T> {
 	var items: [T]
 	public init(items: [T]) {
 		self.items = items
@@ -233,7 +233,7 @@ public extension Stream {
 }
 
 
-class ThrottledSignal <T> : Signal <T> {
+final class ThrottledSignal <T> : Signal <T> {
 	let interval: NSTimeInterval
 	var timer: Timer? = nil
 	

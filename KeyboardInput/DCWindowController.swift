@@ -14,7 +14,7 @@ import Cocoa
  *  functionality, which causes a system BEEP whenever a keydown occurs. --DRC
  */
 
-class DCWindowController: NSWindowController {
+final class DCWindowController: NSWindowController {
   override func noResponderFor(eventSelector: Selector) {}
   override func doCommandBySelector(aSelector: Selector) {}
   override func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool { return true }

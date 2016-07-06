@@ -41,8 +41,8 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "right", thenProduce: "l"),
   SingleMatchRecognizer(string: "felt", thenProduce: "f"),
   SingleMatchRecognizer(string: "next", thenProduce: "n"),
-  SingleMatchRecognizer(string: "begin", thenProduce: "gg"),
-//  SingleMatchRecognizer(string: "end", thenProduce: "G"),       // TODO: Find something else; this conflicts with `e` --DRC
+  SingleMatchRecognizer(string: "beginning", thenProduce: "gg"),
+  SingleMatchRecognizer(string: "ending", thenProduce: "G"),
 
   // Miscellaneous keys
   SingleMatchRecognizer(string: "suck", thenProduce: "<Escape>"),
@@ -51,7 +51,7 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "shoot", thenProduce: "<Tab>"),
   SingleMatchRecognizer(string: "yup", thenProduce: " "),
   SingleMatchRecognizer(string: "lap", thenProduce: "("),
-  SingleMatchRecognizer(string: "rap", thenProduce: ")"),  SingleMatchRecognizer(string: "wrap", thenProduce: ")"),
+  SingleMatchRecognizer(string: "rap", thenProduce: ")"),
   SingleMatchRecognizer(string: "ring", thenProduce: "{"),
   SingleMatchRecognizer(string: "wrong", thenProduce: "}"),
   SingleMatchRecognizer(string: "bing", thenProduce: "["),
@@ -60,12 +60,14 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "luke", thenProduce: ";"),
   SingleMatchRecognizer(string: "equal", thenProduce: "="),
   SingleMatchRecognizer(string: "plus", thenProduce: "+"),
+  SingleMatchRecognizer(string: "minus", thenProduce: "-"),
   SingleMatchRecognizer(string: "lack", thenProduce: "<"),
   SingleMatchRecognizer(string: "rack", thenProduce: ">"),
   SingleMatchRecognizer(string: "squeak", thenProduce: "\""),
   SingleMatchRecognizer(string: "purse", thenProduce: "%"),
   SingleMatchRecognizer(string: "bang", thenProduce: "!"),
   SingleMatchRecognizer(string: "hash", thenProduce: "#"),
+  SingleMatchRecognizer(string: "splat", thenProduce: "*"),
   SingleMatchRecognizer(string: "/", thenProduce: "/"),
   SingleMatchRecognizer(string: "slip", thenProduce: "\\"),
   SingleMatchRecognizer(string: "help", thenProduce: "h"),
@@ -74,17 +76,23 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "join", thenProduce: "J"),
   SingleMatchRecognizer(string: "yes", thenProduce: "y"),
   SingleMatchRecognizer(string: "actor", thenProduce: "@"),
+  SingleMatchRecognizer(string: "zoo", thenProduce: "z"),
+  SingleMatchRecognizer(string: "till", thenProduce: "t"),
+  SingleMatchRecognizer(string: "amp", thenProduce: "&"),
 
   // Multi-Key
   SingleMatchRecognizer(string: "chill", thenProduce: "::"),
   SingleMatchRecognizer(string: "shell", thenProduce: ":!"),
   SingleMatchRecognizer(string: "save", thenProduce: ":w"),
+  SingleMatchRecognizer(string: "scram", thenProduce: ":q"),
   SingleMatchRecognizer(string: "sin", thenProduce: "int"),
   SingleMatchRecognizer(string: "sinning", thenProduce: "int64"),
   SingleMatchRecognizer(string: "soak", thenProduce: "float"),
   SingleMatchRecognizer(string: "soaking", thenProduce: "float64"),
   SingleMatchRecognizer(string: "double", thenProduce: "double"),
+  SingleMatchRecognizer(string: "constant", thenProduce: "const"),
   SingleMatchRecognizer(string: "odd", thenProduce: "Ob"),
+  SingleMatchRecognizer(string: "string", thenProduce: "Str"),
   SingleMatchRecognizer(string: "get", thenProduce: "git"),
 
 
@@ -94,4 +102,6 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   ContinuousCommandRecognizer(command: "pesky", makeHandlerBlock: { PascalCaseTransformer() }),
   ContinuousCommandRecognizer(command: "under", makeHandlerBlock: { UnderscoredTransformer() }),
   ContinuousCommandRecognizer(command: "caps", makeHandlerBlock: { AllCapsTransformer() }),
+  ContinuousCommandRecognizer(command: "squash", makeHandlerBlock: { NoSpacesTransformer() }),
+  ContinuousCommandRecognizer(command: "dashing", makeHandlerBlock: { DashedTransformer() }),
 ]

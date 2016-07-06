@@ -1,6 +1,6 @@
 import Foundation
 
-public class Timer {
+public final class Timer {
 	var timer_source: dispatch_source_t!
 	
 	public init(interval: NSTimeInterval, repeating: Bool, block: () -> ()) {
