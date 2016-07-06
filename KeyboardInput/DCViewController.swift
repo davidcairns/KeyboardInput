@@ -13,7 +13,7 @@ func GetTerminalApp() -> NSRunningApplication! {
   return NSRunningApplication.app(withBundleIdentifier: "com.apple.Terminal")
 }
 
-let AUTO_BREAK_TIME = 1.0
+let AUTO_BREAK_TIME = 1.1
 
 public final class DCViewController : NSViewController {
   let commandProcessor: CommandProcessor
