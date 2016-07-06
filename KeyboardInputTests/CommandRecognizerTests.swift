@@ -38,7 +38,8 @@ class CommandProcessor_Tests: XCTestCase {
   func testDown() { XCTAssertEqual("j", resultOf("down")) }
   func testLeft() { XCTAssertEqual("h", resultOf("left")) }
   func testRight() { XCTAssertEqual("l", resultOf("right")) }
-  func testBeginning() { XCTAssertEqual("gg", resultOf("begin")) }
+  func testBeginning() { XCTAssertEqual("gg", resultOf("beginning")) }
+  func testEnding() { XCTAssertEqual("G", resultOf("ending")) }
 
   // Miscellaneous keys
   func testHack() { XCTAssertEqual("<Escape>", resultOf("suck")) }
