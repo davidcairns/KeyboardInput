@@ -35,6 +35,13 @@ public struct KeyPress {
       return [KeyPress(key: key, modifiers: modifiers)]
     }
 
+    // Handle control sequences.
+    if string.hasPrefix("C-") {
+      let afterControl = string.substringFromIndex(string.startIndex.successor().successor())
+      let baseKeyPress = KeyPress.from(string: afterControl)
+      return baseKeyPress.map { KeyPress(key: $0.key, modifiers: $0.modifiers + [ModifierKey.Control]) }
+    }
+
     // Otherwise, this is just some word; handle it like a series of characters.
     let characters: String.CharacterView = string.characters
     let presses = characters.flatMap { character in
