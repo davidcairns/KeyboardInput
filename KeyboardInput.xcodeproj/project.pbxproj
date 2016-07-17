@@ -11,6 +11,8 @@
 		C8269A7A1D202F7A00554E62 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8269A791D202F7A00554E62 /* Keyboard.swift */; };
 		C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444F51D20540600E1E202 /* DCWindowController.swift */; };
 		C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */; };
+		C8BFD7291D381D3E0001F1AF /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFD7281D381D3E0001F1AF /* String+Helpers.swift */; };
+		C8BFD72B1D381D910001F1AF /* CollectionType+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFD72A1D381D910001F1AF /* CollectionType+Helpers.swift */; };
 		C8CDA4AA1D1CB47E0002B3D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */; };
 		C8CDA4AD1D1CB47E0002B3D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CDA4AC1D1CB47E0002B3D7 /* main.m */; };
 		C8CDA4B21D1CB47E0002B3D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8CDA4B11D1CB47E0002B3D7 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		C8269A791D202F7A00554E62 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		C89444F51D20540600E1E202 /* DCWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCWindowController.swift; sourceTree = "<group>"; };
 		C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRunningApplication+Getting.swift"; sourceTree = "<group>"; };
+		C8BFD7281D381D3E0001F1AF /* String+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		C8BFD72A1D381D910001F1AF /* CollectionType+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Helpers.swift"; sourceTree = "<group>"; };
 		C8CDA4A51D1CB47E0002B3D7 /* KeyboardInput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardInput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CDA4A81D1CB47E0002B3D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8CDA4A91D1CB47E0002B3D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			children = (
 				C8D98B061D24772E007793F2 /* Array+Helpers.swift */,
 				C8D98B0F1D248083007793F2 /* Character+Helpers.swift */,
+				C8BFD7281D381D3E0001F1AF /* String+Helpers.swift */,
+				C8BFD72A1D381D910001F1AF /* CollectionType+Helpers.swift */,
 				C8D200BC1D1D971800765C6F /* Either.swift */,
 				C8D200BE1D1D971800765C6F /* Promise.swift */,
 				C8D200BF1D1D971800765C6F /* Stream.swift */,
@@ -347,6 +353,7 @@
 				C8D200CA1D1D976000765C6F /* KeyCodeConverter.m in Sources */,
 				C8CDA4AD1D1CB47E0002B3D7 /* main.m in Sources */,
 				C8CDA4AA1D1CB47E0002B3D7 /* AppDelegate.m in Sources */,
+				C8BFD7291D381D3E0001F1AF /* String+Helpers.swift in Sources */,
 				C8D98B011D2476EA007793F2 /* TextTransformer.swift in Sources */,
 				C8D98B141D2480AA007793F2 /* ModifierKey.swift in Sources */,
 				C8D98B0B1D24778D007793F2 /* VimCommands.swift in Sources */,
@@ -357,6 +364,7 @@
 				C89444F61D20540600E1E202 /* DCWindowController.swift in Sources */,
 				C8D98B071D24772E007793F2 /* Array+Helpers.swift in Sources */,
 				C8D98B051D247721007793F2 /* InputElement.swift in Sources */,
+				C8BFD72B1D381D910001F1AF /* CollectionType+Helpers.swift in Sources */,
 				C8D200CD1D1D9B1C00765C6F /* DCProcessSerialNumber.m in Sources */,
 				C8D200C51D1D971800765C6F /* Timer.swift in Sources */,
 				C8D200C71D1D973700765C6F /* DCViewController.swift in Sources */,

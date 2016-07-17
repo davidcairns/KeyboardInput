@@ -31,30 +31,34 @@ public final class CommandProcessor {
     }
   }
 
-
   private func handleWord(word: String) {
-    // If we already have a transformer, continue to use it!
+    // If we already have a text handler, continue to use it!
     if let currentTextHandler = self.currentTextHandler {
       let transformed = currentTextHandler.handle(word)
       self.outputStream.emit(transformed)
+      return
     }
-      // Otherwise, we need to check all of our command recognizers to see if any of them
-      // will handle this.
-    else {
-      for recognizer in self.commandRecognizers {
-        let result = recognizer.handle(word)
-        switch result {
-          case .Recognizing(let textHandler):
-            // Use the recognizer from here on out (but not for the instigating command word!)!
-            self.currentTextHandler = textHandler
-          case .Recognized(let textHandler):
-            // Just use this recognizer as a one-shot!
-            let transformed = textHandler.handle(word)
-            self.outputStream.emit(transformed)
-          default: break
-        }
+
+    // Otherwise, we need to check all of our command recognizers to see if any of them
+    // will handle this.
+    for recognizer in self.commandRecognizers {
+      let result = recognizer.handle(word)
+      switch result {
+        case .Recognizing(let textHandler):
+          // Use the recognizer from here on out (but not for the instigating command word!)!
+          self.currentTextHandler = textHandler
+          return
+        case .Recognized(let textHandler):
+          // Just use this recognizer as a one-shot!
+          let transformed = textHandler.handle(word)
+          self.outputStream.emit(transformed)
+        return
+        default: break
       }
     }
+
+    // If we've gotten here, we're not handling this word.
+    print("<¿\(word)?>", terminator: "")
   }
   private func handleBreak() {
     // Breaks always terminates our current text handler.
@@ -68,9 +72,11 @@ public final class CommandProcessor {
     self.currentWord = ""
   }
   public func caughtWord(word: String) {
-    print("<\(word)>", terminator: "")
     let strippedWord = word.stringByReplacingOccurrencesOfString(" ", withString: "")
-    self.inputStream.emit(InputElement.Word(strippedWord))
+    if strippedWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+//      print("<\(strippedWord)>", terminator: "")
+      self.inputStream.emit(InputElement.Word(strippedWord))
+    }
   }
 
   func appendCharacter(string: String) {

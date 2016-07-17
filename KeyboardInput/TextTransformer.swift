@@ -82,3 +82,28 @@ public final class DashedTransformer: TextHandler {         // hello-darkness-my
     return self.under.handle(text).stringByReplacingOccurrencesOfString("_", withString: "-")
   }
 }
+
+
+public final class SpellingTransformer: TextHandler {     // hdmof
+  // Just emits the first letter of each word!
+  func handle(text: String) -> String {
+    // If it just contains numbers, return the numbers (thanks, Dragon).
+    if text.characters.all({ $0.isNumber }) {
+      return text
+    }
+    // If the word is "blunder", that's code for "_".
+    if text == "blunder" {
+      return "_"
+    }
+    // Otherwise, juse use the first letter of each word.
+    return text.characters.first.map { String($0).lowercaseString } ?? ""
+  }
+}
+
+public final class CapsSpellingTransformer: TextHandler {     // HDMOF
+  // Just emits the first letter of each word... but CAPITALIZED!!!
+  let spell = SpellingTransformer()
+  func handle(text: String) -> String {
+    return spell.handle(text).uppercaseString
+  }
+}

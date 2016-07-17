@@ -39,4 +39,5 @@ class KeyPress_Tests: XCTestCase {
   func testRightParenHasShift() { XCTAssertTrue(KeyPress.from(character: ")")!.modifiers.contains(ModifierKey.Shift)) }
   func testLeftBraceHasShift() { XCTAssertTrue(KeyPress.from(character: "{")!.modifiers.contains(ModifierKey.Shift)) }
   func testRightBraceHasShift() { XCTAssertTrue(KeyPress.from(character: "}")!.modifiers.contains(ModifierKey.Shift)) }
+  func testHashHasShift() { XCTAssertTrue(KeyPress.from(character: "#")!.modifiers.contains(ModifierKey.Shift)) }
 }

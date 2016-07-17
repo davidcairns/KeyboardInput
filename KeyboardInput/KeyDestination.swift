@@ -24,6 +24,6 @@ final class KeyDestination {
     CGEventPostToPSN(self.app.processSerialNumber.ptr(), keyEvent)
 
     // Maybe this is a dumb way to solve this, but let's sleep for just a moment so they events don’t arrive out of order.
-    usleep(10)
+    usleep(100)
   }
 }

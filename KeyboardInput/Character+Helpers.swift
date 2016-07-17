@@ -13,4 +13,9 @@ extension Character {
     let s = String(self)
     return s >= "A" && s <= "Z"
   }
+
+  public var isNumber: Bool {
+    let s = String(self)
+    return s >= "0" && s <= "9"
+  }
 }

@@ -24,6 +24,7 @@ public struct KeyPress {
       modifiers.append(ModifierKey.Shift)
     }
 
+//    print("returning key \(key)")
     return KeyPress(key: key, modifiers: modifiers)
   }
 
@@ -31,7 +32,9 @@ public struct KeyPress {
     // If this is a special key or a specific letter, convert directly to that Key.
     if let key = Key.from(string: string) {
       var modifiers: [ModifierKey] = []
-      if key.needsShift { modifiers.append(ModifierKey.Shift) }
+      if key.needsShift || (string.isSingleCharacter && string.isUpper) {
+        modifiers.append(ModifierKey.Shift)
+      }
       return [KeyPress(key: key, modifiers: modifiers)]
     }
 

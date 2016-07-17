@@ -26,7 +26,10 @@ public final class DCViewController : NSViewController {
     let keyboardOutStream: Stream<String> = {
       let stream = Stream<String>()
       let keyboard = Keyboard(destination: KeyDestination(app: GetTerminalApp()))
-      stream.subscribe { keyboard.handleKeyPresses(KeyPress.from(string: $0)) }
+      stream.subscribe {
+        let keyPress = KeyPress.from(string: $0)
+        keyboard.handleKeyPresses(keyPress)
+      }
       return stream
     }()
     self.commandProcessor.outputStream.subscribe(keyboardOutStream)

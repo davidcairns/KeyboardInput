@@ -36,6 +36,7 @@ public enum Key {
   case Nine
   case Seven
   case Dash
+  case Underscore
   case Eight
   case Zero
   case RightBracket
@@ -124,7 +125,8 @@ public enum Key {
   case DownArrow
   case UpArrow
 
-  // The following were discovered using the Key Codes app
+  // "The following were discovered using the Key Codes app"
+  // ^^^ Above comment grandfathered in from another codebase. Not totally sure what it means! --DRC
   case Backspace
   case Enter
   case LessThan
@@ -291,6 +293,7 @@ public enum Key {
     case Caret : return 0x16
     case Plus : return 0x18
     case Hash : return 0x14
+    case Underscore : return 0x1B
     }
   }
 
@@ -315,6 +318,7 @@ public enum Key {
       case .Dollar:                   fallthrough
       case .Caret:                    fallthrough
       case .Plus:                     fallthrough
+      case .Underscore:               fallthrough
       case .Hash:                                 return true
 
       default: return false
@@ -472,7 +476,7 @@ public enum Key {
     case "#":                   return .Hash
 
     // Had to enter these manually; maybe there’s a better way? --DRC
-    case "_":                   return .Dash  // requires SHIFT key.
+    case "_":                   return .Underscore  // requires SHIFT key.
 
     default:                    return nil
     }

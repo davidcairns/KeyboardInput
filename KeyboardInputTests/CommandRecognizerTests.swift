@@ -34,10 +34,10 @@ class CommandProcessor_Tests: XCTestCase {
   func testWord() { XCTAssertEqual("w", resultOf("word")) }
   func testDollar() { XCTAssertEqual("$", resultOf("dollar")) }
   func testZero() { XCTAssertEqual("0", resultOf("zero")) }
-  func testUp() { XCTAssertEqual("k", resultOf("up")) }
-  func testDown() { XCTAssertEqual("j", resultOf("down")) }
-  func testLeft() { XCTAssertEqual("h", resultOf("left")) }
-  func testRight() { XCTAssertEqual("l", resultOf("right")) }
+  func testUp() { XCTAssertEqual("<UpArrow>", resultOf("up")) }
+  func testDown() { XCTAssertEqual("<DownArrow>", resultOf("down")) }
+  func testLeft() { XCTAssertEqual("<LeftArrow>", resultOf("left")) }
+  func testRight() { XCTAssertEqual("<RightArrow>", resultOf("right")) }
   func testBeginning() { XCTAssertEqual("gg", resultOf("beginning")) }
   func testEnding() { XCTAssertEqual("G", resultOf("ending")) }
 
