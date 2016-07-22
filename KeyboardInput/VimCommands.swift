@@ -90,7 +90,7 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "yes", thenProduce: "y"),
   SingleMatchRecognizer(string: "actor", thenProduce: "@"),
   SingleMatchRecognizer(string: "zoom", thenProduce: "z"),
-  SingleMatchRecognizer(string: "till", thenProduce: "t"),
+  SingleMatchRecognizer(string: "top", thenProduce: "t"),
   SingleMatchRecognizer(string: "amp", thenProduce: "&"),
   SingleMatchRecognizer(string: "velcro", thenProduce: "v"),
   SingleMatchRecognizer(string: "goat", thenProduce: "G"),
