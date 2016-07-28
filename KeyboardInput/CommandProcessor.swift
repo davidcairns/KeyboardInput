@@ -32,6 +32,14 @@ public final class CommandProcessor {
   }
 
   private func handleWord(word: String) {
+    // If this word is a shorthand, just emit it.
+    // NOTE: This doesn't change the current text handler; so if you're in the middle of
+    // a "say" operation, you will remain inside it.
+    if let result = Shorthands[word] {
+      self.outputStream.emit(result)
+      return
+    }
+
     // If we already have a text handler, continue to use it!
     if let currentTextHandler = self.currentTextHandler {
       let transformed = currentTextHandler.handle(word)

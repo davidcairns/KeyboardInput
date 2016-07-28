@@ -8,6 +8,60 @@
 
 import Foundation
 
+// These values map a word to a special character.
+public let Shorthands: [String: String] = [
+  // Movement
+  "up": "<UpArrow>",
+  "down": "<DownArrow>",
+  "left": "<LeftArrow>",
+  "right": "<RightArrow>",  "write": "<RightArrow>",
+
+  // Miscellaneous
+  "suck": "<Escape>",
+  "slap": "<Return>",       "slab": "<Return>",
+  "buck": "<Backspace>",    "book": "<Backspace>",
+  "shoot": "<Tab>",
+  "pig": "<PageUp>",
+  "piggy": "<PageDown>",
+  "bone": "<Home>",
+  "bend": "<End>",
+  "go": " ",
+  "lap": "(",
+  "rap": ")",               "wrap": ")",
+  "ring": "{",
+  "wrong": "}",
+  "shim": "[",
+  "sham": "]",
+  "cold": ":",
+  "luke": ";",
+  "equal": "=",
+  "plus": "+",
+  "minus": "-",
+  "lack": "<",
+  "rack": ">",
+  "squeak": "\"",
+  "pip": "'",
+  "purse": "%",
+  "bang": "!",
+  "query": "?",
+  "splat": "*",
+  "splash": "/",
+  "blunder": "_",
+  "hash": "#",              "cash": "#",
+  "tile": "~",
+  "slip": "\\",
+  "actor": "@",
+  "amp": "&",
+
+  // Control-commands
+  "cab": "C-q",
+  "cough": "C-w",
+  "redo": "C-r",
+  "cancel": "C-c",
+  "clear": "C-l",
+  "visual": "C-v",
+]
+
 public let VimCompatibleCommands: [CommandRecognizer] = [
   // Numbers
   SingleMatchRecognizer(string: "first", thenProduce: "1"),
@@ -41,57 +95,19 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "word", thenProduce: "w"),
   SingleMatchRecognizer(string: "dollar", thenProduce: "$"),
   SingleMatchRecognizer(string: "zero", thenProduce: "0"),
-	SingleMatchRecognizer(string: "up", thenProduce: "<UpArrow>"),
-	SingleMatchRecognizer(string: "down", thenProduce: "<DownArrow>"),
-	SingleMatchRecognizer(string: "left", thenProduce: "<LeftArrow>"),
-	SingleMatchRecognizer(string: "right", thenProduce: "<RightArrow>"),	SingleMatchRecognizer(string: "write", thenProduce: "<RightArrow>"),
   SingleMatchRecognizer(string: "felt", thenProduce: "f"),
   SingleMatchRecognizer(string: "next", thenProduce: "n"),
   SingleMatchRecognizer(string: "beginning", thenProduce: "gg"),
   SingleMatchRecognizer(string: "ending", thenProduce: "G"),
 
   // Miscellaneous keys
-  SingleMatchRecognizer(string: "suck", thenProduce: "<Escape>"),
-  SingleMatchRecognizer(string: "slap", thenProduce: "<Return>"),  SingleMatchRecognizer(string: "slab", thenProduce: "<Return>"),
-  SingleMatchRecognizer(string: "buck", thenProduce: "<Backspace>"),  SingleMatchRecognizer(string: "book", thenProduce: "<Backspace>"),
-  SingleMatchRecognizer(string: "shoot", thenProduce: "<Tab>"),
-  SingleMatchRecognizer(string: "pig", thenProduce: "<PageUp>"),
-  SingleMatchRecognizer(string: "piggy", thenProduce: "<PageDown>"),
-  SingleMatchRecognizer(string: "bone", thenProduce: "<Home>"),
-  SingleMatchRecognizer(string: "bend", thenProduce: "<End>"),
-  SingleMatchRecognizer(string: "yup", thenProduce: " "),  SingleMatchRecognizer(string: "yep", thenProduce: " "),  SingleMatchRecognizer(string: "go", thenProduce: " "),
-  SingleMatchRecognizer(string: "lap", thenProduce: "("),
-  SingleMatchRecognizer(string: "rap", thenProduce: ")"),  SingleMatchRecognizer(string: "wrap", thenProduce: ")"),
-  SingleMatchRecognizer(string: "ring", thenProduce: "{"),
-  SingleMatchRecognizer(string: "wrong", thenProduce: "}"),
-  SingleMatchRecognizer(string: "shim", thenProduce: "["),
-  SingleMatchRecognizer(string: "sham", thenProduce: "]"),
-  SingleMatchRecognizer(string: "cold", thenProduce: ":"),
-  SingleMatchRecognizer(string: "luke", thenProduce: ";"),
-  SingleMatchRecognizer(string: "equal", thenProduce: "="),
-  SingleMatchRecognizer(string: "plus", thenProduce: "+"),
-  SingleMatchRecognizer(string: "minus", thenProduce: "-"),
-  SingleMatchRecognizer(string: "lack", thenProduce: "<"),
-  SingleMatchRecognizer(string: "rack", thenProduce: ">"),
-  SingleMatchRecognizer(string: "squeak", thenProduce: "\""),
-  SingleMatchRecognizer(string: "purse", thenProduce: "%"),
-  SingleMatchRecognizer(string: "bang", thenProduce: "!"),
-  SingleMatchRecognizer(string: "query", thenProduce: "?"),
-  SingleMatchRecognizer(string: "splat", thenProduce: "*"),
-  SingleMatchRecognizer(string: "splash", thenProduce: "/"),
-  SingleMatchRecognizer(string: "blunder", thenProduce: "_"),
-  SingleMatchRecognizer(string: "hash", thenProduce: "#"),  SingleMatchRecognizer(string: "cash", thenProduce: "#"),
-  SingleMatchRecognizer(string: "tile", thenProduce: "~"),
-  SingleMatchRecognizer(string: "slip", thenProduce: "\\"),
   SingleMatchRecognizer(string: "help", thenProduce: "h"),
   SingleMatchRecognizer(string: "crow", thenProduce: ","),
   SingleMatchRecognizer(string: "crap", thenProduce: "."),
   SingleMatchRecognizer(string: "join", thenProduce: "J"),
   SingleMatchRecognizer(string: "yes", thenProduce: "y"),
-  SingleMatchRecognizer(string: "actor", thenProduce: "@"),
   SingleMatchRecognizer(string: "zoom", thenProduce: "z"),
   SingleMatchRecognizer(string: "top", thenProduce: "t"),
-  SingleMatchRecognizer(string: "amp", thenProduce: "&"),
   SingleMatchRecognizer(string: "velcro", thenProduce: "v"),
   SingleMatchRecognizer(string: "goat", thenProduce: "G"),
 
@@ -117,7 +133,7 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "odd", thenProduce: "Ob"),
   SingleMatchRecognizer(string: "string", thenProduce: "Str "),
   SingleMatchRecognizer(string: "get", thenProduce: "git "),
-  SingleMatchRecognizer(string: "seedy", thenProduce: "cd "),
+  SingleMatchRecognizer(string: "seedy", thenProduce: "cd "),  SingleMatchRecognizer(string: "CD", thenProduce: "cd "),
   SingleMatchRecognizer(string: "pseudo", thenProduce: "sudo "),  SingleMatchRecognizer(string: "pseudo-", thenProduce: "sudo "),
   SingleMatchRecognizer(string: "if", thenProduce: "if"),
   SingleMatchRecognizer(string: "else", thenProduce: "else "),
@@ -125,14 +141,6 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "blogger", thenProduce: "OB_LOG_ERROR "),
   SingleMatchRecognizer(string: "test", thenProduce: "TEST"),
   SingleMatchRecognizer(string: "testy", thenProduce: "TESTF"),
-
-  // Control-commands
-  SingleMatchRecognizer(string: "cab", thenProduce: "C-b"),
-  SingleMatchRecognizer(string: "cough", thenProduce: "C-w"),
-  SingleMatchRecognizer(string: "redo", thenProduce: "C-r"),
-  SingleMatchRecognizer(string: "cancel", thenProduce: "C-c"),
-  SingleMatchRecognizer(string: "clear", thenProduce: "C-l"),
-  SingleMatchRecognizer(string: "visual", thenProduce: "C-v"),
 
   // Meta
   ContinuousCommandRecognizer(command: "say", makeHandlerBlock: { PassthroughTextHandler() }),
@@ -142,6 +150,10 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   ContinuousCommandRecognizer(command: "caps", makeHandlerBlock: { AllCapsTransformer() }),
   ContinuousCommandRecognizer(command: "squash", makeHandlerBlock: { NoSpacesTransformer() }),
   ContinuousCommandRecognizer(command: "dashing", makeHandlerBlock: { DashedTransformer() }),
+  ContinuousCommandRecognizer(command: "path", makeHandlerBlock: { SlashedTransformer() }),
   ContinuousCommandRecognizer(command: "spelling", makeHandlerBlock: { SpellingTransformer() }),
   ContinuousCommandRecognizer(command: "fatso", makeHandlerBlock: { CapsSpellingTransformer() }),
-]
+] +
+  // Add all the Shorthand pairs as single-match recognizers.
+  Shorthands.map { SingleMatchRecognizer(string: $0.0, thenProduce: $0.1) }
+
