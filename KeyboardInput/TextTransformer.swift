@@ -83,6 +83,14 @@ public final class DashedTransformer: TextHandler {         // hello-darkness-my
   }
 }
 
+public final class SlashedTransformer: TextHandler {        // hello/darkness/my/old/friend
+  // Same as underscores, but with forward slashes.
+  let under: UnderscoredTransformer = UnderscoredTransformer()
+  func handle(text: String) -> String {
+    return self.under.handle(text).stringByReplacingOccurrencesOfString("_", withString: "/")
+  }
+}
+
 
 public final class SpellingTransformer: TextHandler {     // hdmof
   // Just emits the first letter of each word!
