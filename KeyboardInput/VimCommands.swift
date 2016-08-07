@@ -16,16 +16,18 @@ public let Shorthands: [String: String] = [
   "left": "<LeftArrow>",
   "right": "<RightArrow>",  "write": "<RightArrow>",
 
-  // Miscellaneous
+  // Specific Keys / Characters
   "suck": "<Escape>",
-  "slap": "<Return>",       "slab": "<Return>",
+  "slap": "<Return>",       "slapped": "<Return>",       "slab": "<Return>",
   "buck": "<Backspace>",    "book": "<Backspace>",
-  "shoot": "<Tab>",
+  "shoot": "<Tab>",         "shoots": "<Tab>",
   "pig": "<PageUp>",
   "piggy": "<PageDown>",
   "bone": "<Home>",
   "bend": "<End>",
   "go": " ",
+  "crow": ",",
+  "crap": ".",
   "lap": "(",
   "rap": ")",               "wrap": ")",
   "ring": "{",
@@ -34,13 +36,14 @@ public let Shorthands: [String: String] = [
   "sham": "]",
   "cold": ":",
   "luke": ";",
+  "pipe": "|",
   "equal": "=",
   "plus": "+",
   "minus": "-",
-  "lack": "<",
-  "rack": ">",
+  "lake": "<",
+  "rake": ">",
   "squeak": "\"",
-  "pip": "'",
+  "pipsqueak": "'",
   "purse": "%",
   "bang": "!",
   "query": "?",
@@ -53,13 +56,10 @@ public let Shorthands: [String: String] = [
   "actor": "@",
   "amp": "&",
 
-  // Control-commands
-  "cab": "C-q",
-  "cough": "C-w",
-  "redo": "C-r",
-  "cancel": "C-c",
-  "clear": "C-l",
-  "visual": "C-v",
+  // Useful multi-key sequences
+  "chill": "::",
+  "header": ".h",
+  "call": "()",
 ]
 
 public let VimCompatibleCommands: [CommandRecognizer] = [
@@ -102,8 +102,6 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
 
   // Miscellaneous keys
   SingleMatchRecognizer(string: "help", thenProduce: "h"),
-  SingleMatchRecognizer(string: "crow", thenProduce: ","),
-  SingleMatchRecognizer(string: "crap", thenProduce: "."),
   SingleMatchRecognizer(string: "join", thenProduce: "J"),
   SingleMatchRecognizer(string: "yes", thenProduce: "y"),
   SingleMatchRecognizer(string: "zoom", thenProduce: "z"),
@@ -113,13 +111,14 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
 
   // Multi-Key Macros
   SingleMatchRecognizer(string: "comment", thenProduce: "// "),
-  SingleMatchRecognizer(string: "chill", thenProduce: "::"),
   SingleMatchRecognizer(string: "shell", thenProduce: ":!"),
   SingleMatchRecognizer(string: "save", thenProduce: ":w "),
   SingleMatchRecognizer(string: "edit", thenProduce: ":e "),
+  SingleMatchRecognizer(string: "scram", thenProduce: ":q"),
+  SingleMatchRecognizer(string: "servo", thenProduce: ":wa"),
+  SingleMatchRecognizer(string: "psycho", thenProduce: ":wq"),
   SingleMatchRecognizer(string: "darken", thenProduce: ":nohl"),
   SingleMatchRecognizer(string: "arrow", thenProduce: "->"),          // FIXME: STILL BROKEN WTF --DRC
-  SingleMatchRecognizer(string: "scram", thenProduce: ":q"),
   SingleMatchRecognizer(string: "topper", thenProduce: "zt"),
   SingleMatchRecognizer(string: "glint", thenProduce: "int "),
   SingleMatchRecognizer(string: "glinting", thenProduce: "int64 "),
@@ -132,9 +131,11 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "classy", thenProduce: "class "),
   SingleMatchRecognizer(string: "odd", thenProduce: "Ob"),
   SingleMatchRecognizer(string: "string", thenProduce: "Str "),
-  SingleMatchRecognizer(string: "get", thenProduce: "git "),
-  SingleMatchRecognizer(string: "seedy", thenProduce: "cd "),  SingleMatchRecognizer(string: "CD", thenProduce: "cd "),
-  SingleMatchRecognizer(string: "pseudo", thenProduce: "sudo "),  SingleMatchRecognizer(string: "pseudo-", thenProduce: "sudo "),
+  SingleMatchRecognizer(string: "assign", thenProduce: " = "),
+  SingleMatchRecognizer(string: "seedy", thenProduce: "cd "),  SingleMatchRecognizer(string: "cd", thenProduce: "cd "),
+  SingleMatchRecognizer(string: "ellis", thenProduce: "ls "),
+  SingleMatchRecognizer(string: "repo", thenProduce: "git "),
+  SingleMatchRecognizer(string: "pseudo", thenProduce: "sudo "),  SingleMatchRecognizer(string: "pseudo-", thenProduce: "sudo "),  SingleMatchRecognizer(string: "suede", thenProduce: "sudo "),
   SingleMatchRecognizer(string: "if", thenProduce: "if"),
   SingleMatchRecognizer(string: "else", thenProduce: "else "),
   SingleMatchRecognizer(string: "vixen", thenProduce: "vim "),
@@ -142,8 +143,20 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "test", thenProduce: "TEST"),
   SingleMatchRecognizer(string: "testy", thenProduce: "TESTF"),
 
+
+  // Control-commands
+  SingleMatchRecognizer(string: "cab", thenProduce: "C-q"),
+  SingleMatchRecognizer(string: "cough", thenProduce: "C-w"),
+  SingleMatchRecognizer(string: "redo", thenProduce: "C-r"),
+  SingleMatchRecognizer(string: "cancel", thenProduce: "C-c"),
+  SingleMatchRecognizer(string: "clear", thenProduce: "C-l"),
+  SingleMatchRecognizer(string: "ace", thenProduce: "C-a"),
+  SingleMatchRecognizer(string: "ease", thenProduce: "C-e"),
+  SingleMatchRecognizer(string: "visual", thenProduce: "C-v"),
+  SingleMatchRecognizer(string: "nancy", thenProduce: "C-n"),       // multi-cursor plug-in!
+
   // Meta
-  ContinuousCommandRecognizer(command: "say", makeHandlerBlock: { PassthroughTextHandler() }),
+  ContinuousCommandRecognizer(command: "say", makeHandlerBlock: { PassthroughTextHandler() }),  ContinuousCommandRecognizer(command: "run", makeHandlerBlock: { PassthroughTextHandler() }),
   ContinuousCommandRecognizer(command: "camel", makeHandlerBlock: { CamelCaseTransformer() }),
   ContinuousCommandRecognizer(command: "pesky", makeHandlerBlock: { PascalCaseTransformer() }),
   ContinuousCommandRecognizer(command: "under", makeHandlerBlock: { UnderscoredTransformer() }),

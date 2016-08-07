@@ -44,7 +44,7 @@ class CommandProcessor_Tests: XCTestCase {
   // Miscellaneous keys
   func testHack() { XCTAssertEqual("<Escape>", resultOf("suck")) }
   func testSlap() { XCTAssertEqual("<Return>", resultOf("slap")) }
-  func testSpace() { XCTAssertEqual(" ", resultOf("yup")) }
+  func testSpace() { XCTAssertEqual(" ", resultOf("go")) }
 
   // Meta
   func testSay() { XCTAssertEqual("hello world", resultOf("say hello world")) }
