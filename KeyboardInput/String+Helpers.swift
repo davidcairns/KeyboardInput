@@ -17,4 +17,16 @@ extension String {
     let characters: String.CharacterView = self.characters
     return characters.all { $0.isUpper }
   }
+
+  public var isNumber: Bool {
+    let characters: String.CharacterView = self.characters
+    return characters.all { c in
+      if c.isNumber { return true }
+
+      let s = String(c)
+      if s == "," || s == "." { return true }
+
+      return false
+    }
+  }
 }

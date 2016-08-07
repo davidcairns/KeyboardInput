@@ -40,6 +40,15 @@ public final class CommandProcessor {
       return
     }
 
+    // If this is a raw number (Dragon converts spoken numbers into their numeric
+    // digits), just output it (sans any commas).
+    // For example: 2,098.6 -> 2098.6
+    if word.isNumber {
+      let sansCommas = word.stringByReplacingOccurrencesOfString(",", withString: "")
+      self.outputStream.emit(sansCommas)
+      return
+    }
+
     // If we already have a text handler, continue to use it!
     if let currentTextHandler = self.currentTextHandler {
       let transformed = currentTextHandler.handle(word)
