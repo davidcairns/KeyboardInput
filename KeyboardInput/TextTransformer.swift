@@ -94,17 +94,25 @@ public final class SlashedTransformer: TextHandler {        // hello/darkness/my
 
 public final class SpellingTransformer: TextHandler {     // hdmof
   // Just emits the first letter of each word!
+  var isBig = false
   func handle(text: String) -> String {
     // If it just contains numbers, return the numbers (thanks, Dragon).
     if text.characters.all({ $0.isNumber }) {
       return text
     }
-    // If the word is "blunder", that's code for "_".
-    if text == "blunder" {
-      return "_"
+
+    // If it's either the words "big" or "little", change to the specified case (and bail early!).
+    if text == "big" {
+      self.isBig = true
+      return ""
     }
+    else if text == "little" {
+      self.isBig = false
+      return ""
+    }
+
     // Otherwise, juse use the first letter of each word.
-    return text.characters.first.map { String($0).lowercaseString } ?? ""
+    return text.characters.first.map { self.isBig ? String($0).uppercaseString : String($0).lowercaseString } ?? ""
   }
 }
 
