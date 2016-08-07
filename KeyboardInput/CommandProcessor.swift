@@ -89,7 +89,7 @@ public final class CommandProcessor {
     self.currentWord = ""
   }
   public func caughtWord(word: String) {
-    let strippedWord = word.stringByReplacingOccurrencesOfString(" ", withString: "")
+    let strippedWord = word.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
     if strippedWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 //      print("<\(strippedWord)>", terminator: "")
       self.inputStream.emit(InputElement.Word(strippedWord))
