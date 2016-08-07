@@ -123,3 +123,16 @@ public final class CapsSpellingTransformer: TextHandler {     // HDMOF
     return spell.handle(text).uppercaseString
   }
 }
+
+
+public final class SentenceTextHandler: TextHandler {       // Hello darkness my old friend
+  // Maybe this one is kind of dumb, but it is just like "say", except the first word is capitalized.
+  var isFirstWord: Bool = true
+  let passthrough = PassthroughTextHandler()
+  func handle(text: String) -> String {
+    let passedThrough = passthrough.handle(text)
+    let transformed = (self.isFirstWord ? passedThrough.capitalizedString : passedThrough.lowercaseString)
+    self.isFirstWord = false
+    return transformed
+  }
+}

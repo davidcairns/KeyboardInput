@@ -153,6 +153,7 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   ContinuousCommandRecognizer(command: "path", makeHandlerBlock: { SlashedTransformer() }),
   ContinuousCommandRecognizer(command: "spelling", makeHandlerBlock: { SpellingTransformer() }),
   ContinuousCommandRecognizer(command: "fatso", makeHandlerBlock: { CapsSpellingTransformer() }),
+  ContinuousCommandRecognizer(command: "sentence", makeHandlerBlock: { SentenceTextHandler() }),
 ] +
   // Add all the Shorthand pairs as single-match recognizers.
   Shorthands.map { SingleMatchRecognizer(string: $0.0, thenProduce: $0.1) }
