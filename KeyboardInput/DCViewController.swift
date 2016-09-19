@@ -25,7 +25,14 @@ public final class DCViewController : NSViewController {
     // ENABLE THESE LINES FOR WRITING TO TERMINAL!!!
     let keyboardOutStream: Stream<String> = {
       let stream = Stream<String>()
-      let keyboard = Keyboard(destination: KeyDestination(app: GetTerminalApp()))
+
+      // Get the Terminal -- if we can't, bail!
+      let terminalApp = GetTerminalApp()
+      if nil == terminalApp { abort() }
+
+      // Get a Keyboard interface to Terminal.
+      let keyboard = Keyboard(destination: KeyDestination(app: terminalApp!))
+
       stream.subscribe {
         let keyPress = KeyPress.from(string: $0)
         keyboard.handleKeyPresses(keyPress)

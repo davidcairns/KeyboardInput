@@ -17,8 +17,8 @@ public let Shorthands: [String: String] = [
   "right": "<RightArrow>",  "write": "<RightArrow>",
 
   // Specific Keys / Characters
-  "suck": "<Escape>",
-  "slap": "<Return>",       "slapped": "<Return>",       "slab": "<Return>",
+  "suck": "<Escape>",       "sucks": "<Escape>",
+  "slap": "<Return>",       "slaps": "<Return>",       "slapped": "<Return>",       "slab": "<Return>",   "bam": "<Return>",   "ban": "<Return>",
   "buck": "<Backspace>",    "book": "<Backspace>",
   "shoot": "<Tab>",         "shoots": "<Tab>",
   "pig": "<PageUp>",
@@ -41,14 +41,14 @@ public let Shorthands: [String: String] = [
   "plus": "+",
   "minus": "-",
   "lake": "<",
-  "rake": ">",
+  "rake": ">",  "raking": ">>",
   "squeak": "\"",
   "pipsqueak": "'",
   "purse": "%",
   "bang": "!",
   "query": "?",
   "splat": "*",
-  "splash": "/",
+  "splash": "/",            "swim": "/",
   "blunder": "_",
   "hash": "#",              "cash": "#",
   "tile": "~",
@@ -60,43 +60,66 @@ public let Shorthands: [String: String] = [
   "chill": "::",
   "header": ".h",
   "call": "()",
+  "ms.": "mz",
+  "mrs.": "mezz",
+  "dr.": "docker",
+]
+
+// Formatters are special -- we should let them interrupt each other so we don’t have to e.g. pause mid-
+// sentence if trying to output "Then we check VimCompatibleCommands for compatible handlers".
+public let Formatters: [CommandRecognizer] = [
+  ContinuousCommandRecognizer(command: "say", makeHandlerBlock: { PassthroughTextHandler() }),  ContinuousCommandRecognizer(command: "run", makeHandlerBlock: { PassthroughTextHandler() }),
+  ContinuousCommandRecognizer(command: "camel", makeHandlerBlock: { CamelCaseTransformer() }),
+  ContinuousCommandRecognizer(command: "pesky", makeHandlerBlock: { PascalCaseTransformer() }),
+  ContinuousCommandRecognizer(command: "under", makeHandlerBlock: { UnderscoredTransformer() }),
+  ContinuousCommandRecognizer(command: "caps", makeHandlerBlock: { AllCapsTransformer() }),
+  ContinuousCommandRecognizer(command: "squash", makeHandlerBlock: { NoSpacesTransformer() }),
+  ContinuousCommandRecognizer(command: "dashing", makeHandlerBlock: { DashedTransformer() }),
+  ContinuousCommandRecognizer(command: "path", makeHandlerBlock: { SlashedTransformer() }),
+  ContinuousCommandRecognizer(command: "spelling", makeHandlerBlock: { SpellingTransformer() }),
+  ContinuousCommandRecognizer(command: "bigger", makeHandlerBlock: { CapsSpellingTransformer() }),
+  ContinuousCommandRecognizer(command: "sentence", makeHandlerBlock: { SentenceTextHandler() }),
 ]
 
 public let VimCompatibleCommands: [CommandRecognizer] = [
   // Numbers
-  SingleMatchRecognizer(string: "first", thenProduce: "1"),
-  SingleMatchRecognizer(string: "second", thenProduce: "2"),
-  SingleMatchRecognizer(string: "third", thenProduce: "3"),
+  SingleMatchRecognizer(string: "first", thenProduce: "1"),  SingleMatchRecognizer(string: "1st", thenProduce: "2"),
+  SingleMatchRecognizer(string: "second", thenProduce: "2"),  SingleMatchRecognizer(string: "2nd", thenProduce: "2"),
+  SingleMatchRecognizer(string: "third", thenProduce: "3"),  SingleMatchRecognizer(string: "3rd", thenProduce: "2"),
   SingleMatchRecognizer(string: "fourth", thenProduce: "4"),  SingleMatchRecognizer(string: "forth", thenProduce: "4"),
-  SingleMatchRecognizer(string: "fifth", thenProduce: "5"),
-  SingleMatchRecognizer(string: "sixth", thenProduce: "6"),
-  SingleMatchRecognizer(string: "seventh", thenProduce: "7"),
-  SingleMatchRecognizer(string: "eighth", thenProduce: "8"),
-  SingleMatchRecognizer(string: "ninth", thenProduce: "9"),
+  SingleMatchRecognizer(string: "fifth", thenProduce: "5"),  SingleMatchRecognizer(string: "5th", thenProduce: "2"),
+  SingleMatchRecognizer(string: "sixth", thenProduce: "6"),  SingleMatchRecognizer(string: "6th", thenProduce: "2"),
+  SingleMatchRecognizer(string: "seventh", thenProduce: "7"),  SingleMatchRecognizer(string: "7th", thenProduce: "2"),
+  SingleMatchRecognizer(string: "eighth", thenProduce: "8"),  SingleMatchRecognizer(string: "8th", thenProduce: "2"),
+  SingleMatchRecognizer(string: "ninth", thenProduce: "9"),  SingleMatchRecognizer(string: "9th", thenProduce: "2"),
 
   // Command
   SingleMatchRecognizer(string: "input", thenProduce: "i"),
+  SingleMatchRecognizer(string: "indigo", thenProduce: "I"),
   SingleMatchRecognizer(string: "append", thenProduce: "a"),
   SingleMatchRecognizer(string: "apple", thenProduce: "A"),
   SingleMatchRecognizer(string: "over", thenProduce: "O"),
   SingleMatchRecognizer(string: "odor", thenProduce: "o"),
   SingleMatchRecognizer(string: "slurp", thenProduce: "d"),
+  SingleMatchRecognizer(string: "slurping", thenProduce: "dd"),
   SingleMatchRecognizer(string: "change", thenProduce: "c"),
   SingleMatchRecognizer(string: "undo", thenProduce: "u"), SingleMatchRecognizer(string: "undue", thenProduce: "u"),
-  SingleMatchRecognizer(string: "yank", thenProduce: "y"),
-  SingleMatchRecognizer(string: "put", thenProduce: "p"),
+  SingleMatchRecognizer(string: "yank", thenProduce: "y"),  SingleMatchRecognizer(string: "yanking", thenProduce: "yy"),
+  SingleMatchRecognizer(string: "put", thenProduce: "p"),  SingleMatchRecognizer(string: "puts", thenProduce: "p"),
   SingleMatchRecognizer(string: "paste", thenProduce: "P"),
   SingleMatchRecognizer(string: "chum", thenProduce: "x"),
   SingleMatchRecognizer(string: "replace", thenProduce: "r"),
 
   // Movement
   SingleMatchRecognizer(string: "back", thenProduce: "b"),
-  SingleMatchRecognizer(string: "send", thenProduce: "e"),
+  SingleMatchRecognizer(string: "send", thenProduce: "e"),  SingleMatchRecognizer(string: "sent", thenProduce: "e"),
   SingleMatchRecognizer(string: "word", thenProduce: "w"),
   SingleMatchRecognizer(string: "dollar", thenProduce: "$"),
   SingleMatchRecognizer(string: "zero", thenProduce: "0"),
   SingleMatchRecognizer(string: "felt", thenProduce: "f"),
   SingleMatchRecognizer(string: "next", thenProduce: "n"),
+  SingleMatchRecognizer(string: "previous", thenProduce: "N"),
+  SingleMatchRecognizer(string: "step", thenProduce: "s"),
   SingleMatchRecognizer(string: "beginning", thenProduce: "gg"),
   SingleMatchRecognizer(string: "ending", thenProduce: "G"),
 
@@ -104,9 +127,11 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "help", thenProduce: "h"),
   SingleMatchRecognizer(string: "join", thenProduce: "J"),
   SingleMatchRecognizer(string: "yes", thenProduce: "y"),
-  SingleMatchRecognizer(string: "zoom", thenProduce: "z"),
+  SingleMatchRecognizer(string: "zoom", thenProduce: "z"),  SingleMatchRecognizer(string: "zooms", thenProduce: "z"),
   SingleMatchRecognizer(string: "top", thenProduce: "t"),
+  SingleMatchRecognizer(string: "topping", thenProduce: "T"),
   SingleMatchRecognizer(string: "velcro", thenProduce: "v"),
+  SingleMatchRecognizer(string: "vines", thenProduce: "V"),
   SingleMatchRecognizer(string: "goat", thenProduce: "G"),
 
   // Multi-Key Macros
@@ -138,36 +163,29 @@ public let VimCompatibleCommands: [CommandRecognizer] = [
   SingleMatchRecognizer(string: "pseudo", thenProduce: "sudo "),  SingleMatchRecognizer(string: "pseudo-", thenProduce: "sudo "),  SingleMatchRecognizer(string: "suede", thenProduce: "sudo "),
   SingleMatchRecognizer(string: "if", thenProduce: "if"),
   SingleMatchRecognizer(string: "else", thenProduce: "else "),
+  SingleMatchRecognizer(string: "blanket", thenProduce: "utf8"),
   SingleMatchRecognizer(string: "vixen", thenProduce: "vim "),
   SingleMatchRecognizer(string: "blogger", thenProduce: "OB_LOG_ERROR "),
-  SingleMatchRecognizer(string: "test", thenProduce: "TEST"),
-  SingleMatchRecognizer(string: "testy", thenProduce: "TESTF"),
+  SingleMatchRecognizer(string: "test", thenProduce: "test"),
+  SingleMatchRecognizer(string: "testy", thenProduce: "testf"),
 
 
   // Control-commands
-  SingleMatchRecognizer(string: "cab", thenProduce: "C-q"),
+  SingleMatchRecognizer(string: "tank", thenProduce: "C-q"),
   SingleMatchRecognizer(string: "cough", thenProduce: "C-w"),
   SingleMatchRecognizer(string: "redo", thenProduce: "C-r"),
   SingleMatchRecognizer(string: "cancel", thenProduce: "C-c"),
   SingleMatchRecognizer(string: "clear", thenProduce: "C-l"),
   SingleMatchRecognizer(string: "ace", thenProduce: "C-a"),
-  SingleMatchRecognizer(string: "ease", thenProduce: "C-e"),
+  SingleMatchRecognizer(string: "easy", thenProduce: "C-e"),
   SingleMatchRecognizer(string: "visual", thenProduce: "C-v"),
   SingleMatchRecognizer(string: "nancy", thenProduce: "C-n"),       // multi-cursor plug-in!
+  SingleMatchRecognizer(string: "background", thenProduce: "C-z"),
+  SingleMatchRecognizer(string: "foreground", thenProduce: "fg"),
+]
+  // Add all the Formatters
+  + Formatters
 
-  // Meta
-  ContinuousCommandRecognizer(command: "say", makeHandlerBlock: { PassthroughTextHandler() }),  ContinuousCommandRecognizer(command: "run", makeHandlerBlock: { PassthroughTextHandler() }),
-  ContinuousCommandRecognizer(command: "camel", makeHandlerBlock: { CamelCaseTransformer() }),
-  ContinuousCommandRecognizer(command: "pesky", makeHandlerBlock: { PascalCaseTransformer() }),
-  ContinuousCommandRecognizer(command: "under", makeHandlerBlock: { UnderscoredTransformer() }),
-  ContinuousCommandRecognizer(command: "caps", makeHandlerBlock: { AllCapsTransformer() }),
-  ContinuousCommandRecognizer(command: "squash", makeHandlerBlock: { NoSpacesTransformer() }),
-  ContinuousCommandRecognizer(command: "dashing", makeHandlerBlock: { DashedTransformer() }),
-  ContinuousCommandRecognizer(command: "path", makeHandlerBlock: { SlashedTransformer() }),
-  ContinuousCommandRecognizer(command: "spelling", makeHandlerBlock: { SpellingTransformer() }),
-  ContinuousCommandRecognizer(command: "fatso", makeHandlerBlock: { CapsSpellingTransformer() }),
-  ContinuousCommandRecognizer(command: "sentence", makeHandlerBlock: { SentenceTextHandler() }),
-] +
   // Add all the Shorthand pairs as single-match recognizers.
-  Shorthands.map { SingleMatchRecognizer(string: $0.0, thenProduce: $0.1) }
+  + Shorthands.map { SingleMatchRecognizer(string: $0.0, thenProduce: $0.1) }
 

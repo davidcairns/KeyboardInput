@@ -88,11 +88,27 @@ public final class CommandProcessor {
     self.caughtWord(self.currentWord)
     self.currentWord = ""
   }
+
+  private static func cleanedUp(word word: String) -> String {
+    // Make sure it's lower-case.
+    var result = word.lowercaseString
+
+    // Remove any spaces.
+    result = result.stringByReplacingOccurrencesOfString(" ", withString: "")
+    if result.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 { return "" }
+
+    // Remove any interior hyphens / dashes.
+    if String(result.characters.first!) != "-" {
+      result = result.stringByReplacingOccurrencesOfString("-", withString: "")
+    }
+
+    return result
+  }
   public func caughtWord(word: String) {
-    let strippedWord = word.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
-    if strippedWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
-//      print("<\(strippedWord)>", terminator: "")
-      self.inputStream.emit(InputElement.Word(strippedWord))
+    let cleanedWord = CommandProcessor.cleanedUp(word: word)
+    if cleanedWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+      print("<\(cleanedWord)>", terminator: "")
+      self.inputStream.emit(InputElement.Word(cleanedWord))
     }
   }
 
