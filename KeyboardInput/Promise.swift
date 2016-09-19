@@ -1,11 +1,11 @@
 import Foundation
 import Dispatch
 
-public func doAsync<T>(block: () -> T, then: T -> ()) {
-	let queue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
-	dispatch_async(queue) {
+public func doAsync<T>(_ block: @escaping () -> T, then: @escaping (T) -> ()) {
+	let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+	queue.async {
 		let result = block()
-		dispatch_async(dispatch_get_main_queue()) {
+		DispatchQueue.main.async {
 			then(result)
 		}
 	}
@@ -13,7 +13,7 @@ public func doAsync<T>(block: () -> T, then: T -> ()) {
 
 
 /// A Promise is just a one-shot Stream.
-public func Promise<T>(produce: () -> T) -> Stream<T> {
+public func Promise<T>(_ produce: @escaping () -> T) -> Stream<T> {
 	let stream = Stream<T>()
 	
 	doAsync(produce) {

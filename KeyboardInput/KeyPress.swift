@@ -12,7 +12,7 @@ public struct KeyPress {
   public let key: Key
   public let modifiers: [ModifierKey]
 
-  static func from(character character: Character) -> KeyPress? {
+  static func from(character: Character) -> KeyPress? {
     guard let key = Key.from(character: character) else {
       print("FAILED TO PRODUCE KEYPRESS FOR CHARACTER '\(character)'")
       return nil
@@ -20,29 +20,30 @@ public struct KeyPress {
     var modifiers: [ModifierKey] = []
 
     let charString = String(character)
-    if character.isUpper || "!@#$%^&*()_+{}:\"<>?|".containsString(charString) {
-      modifiers.append(ModifierKey.Shift)
+    if character.isUpper || "!@#$%^&*()_+{}:\"<>?|".contains(charString) {
+      modifiers.append(ModifierKey.shift)
     }
 
 //    print("returning key \(key)")
     return KeyPress(key: key, modifiers: modifiers)
   }
 
-  static func from(string string: String) -> [KeyPress] {
+  static func from(string: String) -> [KeyPress] {
     // If this is a special key or a specific letter, convert directly to that Key.
     if let key = Key.from(string: string) {
       var modifiers: [ModifierKey] = []
       if key.needsShift || (string.isSingleCharacter && string.isUpper) {
-        modifiers.append(ModifierKey.Shift)
+        modifiers.append(ModifierKey.shift)
       }
       return [KeyPress(key: key, modifiers: modifiers)]
     }
 
     // Handle control sequences.
     if string.hasPrefix("C-") {
-      let afterControl = string.substringFromIndex(string.startIndex.successor().successor())
+      let secondCharacterIndex = string.index(after: string.index(after: string.startIndex))
+      let afterControl = string.substring(from: secondCharacterIndex)
       let baseKeyPress = KeyPress.from(string: afterControl)
-      return baseKeyPress.map { KeyPress(key: $0.key, modifiers: $0.modifiers + [ModifierKey.Control]) }
+      return baseKeyPress.map { KeyPress(key: $0.key, modifiers: $0.modifiers + [ModifierKey.control]) }
     }
 
     // Otherwise, this is just some word; handle it like a series of characters.

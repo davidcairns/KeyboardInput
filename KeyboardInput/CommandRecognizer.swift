@@ -8,17 +8,17 @@
 
 import Foundation
 
-public class CommandRecognizer {
+open class CommandRecognizer {
   let textHandler: TextHandler! = nil
 
   enum RecognitionResult {
-    case NotRecognized
-    case Recognizing(TextHandler)
-    case Recognized(TextHandler)
+    case notRecognized
+    case recognizing(TextHandler)
+    case recognized(TextHandler)
   }
 
   /* Override point! */
-  func handle(word: String) -> RecognitionResult { return .NotRecognized }
+  func handle(_ word: String) -> RecognitionResult { return .notRecognized }
 }
 
 /*  Whenever an instance recognizes, it produces some result. This command
@@ -33,11 +33,11 @@ final class SingleMatchRecognizer : CommandRecognizer {
     super.init()
   }
 
-  override func handle(word: String) -> CommandRecognizer.RecognitionResult {
-    if self.string == word.lowercaseString {
-      return .Recognized(TextTransformer(transform: { _ in self.result }))
+  override func handle(_ word: String) -> CommandRecognizer.RecognitionResult {
+    if self.string == word.lowercased() {
+      return .recognized(TextTransformer(transform: { _ in self.result }))
     }
-    return .NotRecognized
+    return .notRecognized
   }
 }
 
@@ -50,16 +50,16 @@ final class ContinuousCommandRecognizer : CommandRecognizer {
   let command: String
   let makeHandlerBlock: () -> TextHandler
 
-  init(command: String, makeHandlerBlock: () -> TextHandler) {
+  init(command: String, makeHandlerBlock: @escaping () -> TextHandler) {
     self.command = command
     self.makeHandlerBlock = makeHandlerBlock
     super.init()
   }
 
-  override func handle(word: String) -> CommandRecognizer.RecognitionResult {
-    if self.command == word.lowercaseString {
-      return .Recognizing(self.makeHandlerBlock())
+  override func handle(_ word: String) -> CommandRecognizer.RecognitionResult {
+    if self.command == word.lowercased() {
+      return .recognizing(self.makeHandlerBlock())
     }
-    return .NotRecognized
+    return .notRecognized
   }
 }

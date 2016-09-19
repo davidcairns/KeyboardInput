@@ -1,40 +1,46 @@
 import Foundation
 
 public final class Timer {
-	var timer_source: dispatch_source_t!
+	var timer_source: DispatchSourceTimer
 	
-	public init(interval: NSTimeInterval, repeating: Bool, block: () -> ()) {
-		self.timer_source = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue())
+	public init(interval: TimeInterval, repeating: Bool, block: @escaping () -> ()) {
+		self.timer_source = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: UInt(0)), queue: DispatchQueue.main)
 		// First fire should be `interval` seconds in the future.
-		let interval_nsec = UInt64(Double(interval) * Double(NSEC_PER_SEC))
-		let startTime = dispatch_time(DISPATCH_TIME_NOW, Int64(interval_nsec))
-		let leeway: UInt64 = 0
-		dispatch_source_set_timer(self.timer_source, startTime, interval_nsec, leeway)
-		dispatch_source_set_event_handler(self.timer_source) {
+		let interval_nsec = Int(Double(interval) * Double(NSEC_PER_SEC))
+    let interval_time: DispatchTimeInterval = .nanoseconds(interval_nsec)
+    let startTime: DispatchTime = DispatchTime.now() + interval_time
+    if repeating {
+      self.timer_source.scheduleRepeating(deadline: startTime, interval: interval_time)
+    }
+    else {
+      self.timer_source.scheduleOneshot(deadline: startTime)
+    }
+
+		self.timer_source.setEventHandler {
 			block()
 			if !repeating {
 				self.cancel()
 			}
 		}
 	}
-	public convenience init(repeatingEvery interval: NSTimeInterval, block: () -> ()) {
+	public convenience init(repeatingEvery interval: TimeInterval, block: @escaping () -> ()) {
 		self.init(interval: interval, repeating: true, block: block)
 	}
-	public convenience init(oneShotAfterInterval interval: NSTimeInterval, block: () -> ()) {
+	public convenience init(oneShotAfterInterval interval: TimeInterval, block: @escaping () -> ()) {
 		self.init(interval: interval, repeating: false, block: block)
 	}
 	
 	deinit {
-		dispatch_source_cancel(self.timer_source)
+		self.timer_source.cancel()
 	}
 	
 	public func start() {
-		dispatch_resume(self.timer_source)
+		self.timer_source.resume()
 	}
 	
 	public var valid = true
 	public func cancel() {
-		dispatch_source_cancel(self.timer_source)
+		self.timer_source.cancel()
 		self.valid = false
 	}
 }

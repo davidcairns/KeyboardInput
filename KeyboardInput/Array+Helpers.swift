@@ -11,6 +11,6 @@ import Foundation
 extension Array {
   public var tail: Array {
     if self.count <= 1 { return [] }
-    return Array(self.suffixFrom(1))
+    return Array(self.suffix(from: 1))
   }
 }

@@ -12,8 +12,8 @@ import XCTest
 class TextTransformerTests: XCTestCase {
   let text = "mario and luigi"
 
-  func runText(text: String, transformer: TextHandler) -> String {
-    let words = text.componentsSeparatedByString(" ")
+  func runText(_ text: String, transformer: TextHandler) -> String {
+    let words = text.components(separatedBy: " ")
     return words.reduce("") { $0 + transformer.handle($1) }
   }
 

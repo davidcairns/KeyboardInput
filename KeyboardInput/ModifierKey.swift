@@ -10,27 +10,27 @@ import Foundation
 
 // This enum just wraps some of the Keys so we can specify when something should definitely only be a modifier.
 public enum ModifierKey {
-  case Command
-  case Shift
-  case CapsLock
-  case Option
-  case Control
-  case RightShift
-  case RightOption
-  case RightControl
-  case Function
+  case command
+  case shift
+  case capsLock
+  case option
+  case control
+  case rightShift
+  case rightOption
+  case rightControl
+  case function
 
   var key: Key {
     switch self {
-    case Command: return Key.Command
-    case Shift: return Key.Shift
-    case .CapsLock: return Key.CapsLock
-    case Option: return Key.Option
-    case Control: return Key.Control
-    case RightShift: return Key.RightShift
-    case RightOption: return Key.RightOption
-    case RightControl: return Key.RightControl
-    case Function: return Key.Function
+    case .command: return Key.command
+    case .shift: return Key.shift
+    case .capsLock: return Key.capsLock
+    case .option: return Key.option
+    case .control: return Key.control
+    case .rightShift: return Key.rightShift
+    case .rightOption: return Key.rightOption
+    case .rightControl: return Key.rightControl
+    case .function: return Key.function
     }
   }
 }
@@ -39,22 +39,22 @@ public enum ModifierKey {
 extension ModifierKey {
   var toFlagVal: UInt64 {
     switch self {
-    case Command: return CGEventFlags.MaskCommand.rawValue
-    case Shift: return CGEventFlags.MaskShift.rawValue
-    case CapsLock: return CGEventFlags.MaskAlphaShift.rawValue
-    case Option: return CGEventFlags.MaskAlternate.rawValue
-    case Control: return CGEventFlags.MaskControl.rawValue
-    case RightShift: return CGEventFlags.MaskShift.rawValue
-    case RightOption: return CGEventFlags.MaskAlternate.rawValue
-    case RightControl: return CGEventFlags.MaskControl.rawValue
-    case Function: return CGEventFlags.MaskSecondaryFn.rawValue
+    case .command: return CGEventFlags.maskCommand.rawValue
+    case .shift: return CGEventFlags.maskShift.rawValue
+    case .capsLock: return CGEventFlags.maskAlphaShift.rawValue
+    case .option: return CGEventFlags.maskAlternate.rawValue
+    case .control: return CGEventFlags.maskControl.rawValue
+    case .rightShift: return CGEventFlags.maskShift.rawValue
+    case .rightOption: return CGEventFlags.maskAlternate.rawValue
+    case .rightControl: return CGEventFlags.maskControl.rawValue
+    case .function: return CGEventFlags.maskSecondaryFn.rawValue
     }
   }
   var toFlag: CGEventFlags {
-    return CGEventFlags(rawValue: self.toFlagVal)!
+    return CGEventFlags(rawValue: self.toFlagVal)
   }
-  static func ToFlags(modifiers: [ModifierKey]) -> CGEventFlags {
+  static func ToFlags(_ modifiers: [ModifierKey]) -> CGEventFlags {
     let flags: UInt64 = modifiers.reduce(0) { $0 | $1.toFlagVal }
-    return CGEventFlags(rawValue: flags)!
+    return CGEventFlags(rawValue: flags)
   }
 }

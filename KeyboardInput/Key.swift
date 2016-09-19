@@ -9,474 +9,474 @@
 import Foundation
 
 public enum Key {
-  case A
-  case S
-  case D
-  case F
-  case H
-  case G
-  case Z
-  case X
-  case C
-  case V
-  case B
-  case Q
-  case W
-  case E
-  case R
-  case Y
-  case Tee // "T" conflicts with some kind of internal Swift thing >_<
-  case One
-  case Two
-  case Three
-  case Four
-  case Five
-  case Six
-  case Equals
-  case Nine
-  case Seven
-  case Dash
-  case Underscore
-  case Eight
-  case Zero
-  case RightBracket
-  case O
-  case U
-  case LeftBracket
-  case I
-  case P
-  case L
-  case J
-  case Quote
-  case K
-  case Semicolon
-  case Backslash
-  case Comma
-  case Slash
-  case N
-  case M
-  case Period
-  case Grave
-  case KeypadDecimal
-  case KeypadMultiply
-  case KeypadPlus
-  case KeypadClear
-  case KeypadDivide
-  case KeypadEnter
-  case KeypadMinus
-  case KeypadEquals
-  case Keypad0
-  case Keypad1
-  case Keypad2
-  case Keypad3
-  case Keypad4
-  case Keypad5
-  case Keypad6
-  case Keypad7
-  case Keypad8
-  case Keypad9
+  case a
+  case s
+  case d
+  case f
+  case h
+  case g
+  case z
+  case x
+  case c
+  case v
+  case b
+  case q
+  case w
+  case e
+  case r
+  case y
+  case tee // "T" conflicts with some kind of internal Swift thing >_<
+  case one
+  case two
+  case three
+  case four
+  case five
+  case six
+  case equals
+  case nine
+  case seven
+  case dash
+  case underscore
+  case eight
+  case zero
+  case rightBracket
+  case o
+  case u
+  case leftBracket
+  case i
+  case p
+  case l
+  case j
+  case quote
+  case k
+  case semicolon
+  case backslash
+  case comma
+  case slash
+  case n
+  case m
+  case period
+  case grave
+  case keypadDecimal
+  case keypadMultiply
+  case keypadPlus
+  case keypadClear
+  case keypadDivide
+  case keypadEnter
+  case keypadMinus
+  case keypadEquals
+  case keypad0
+  case keypad1
+  case keypad2
+  case keypad3
+  case keypad4
+  case keypad5
+  case keypad6
+  case keypad7
+  case keypad8
+  case keypad9
 
   /* keycodes for keys that are independent of keyboard layout*/
-  case Return
-  case Tab
-  case Space
-  case Delete
-  case Escape
-  case Command
-  case Shift
-  case CapsLock
-  case Option
-  case Control
-  case RightShift
-  case RightOption
-  case RightControl
-  case Function
-  case F17
-  case VolumeUp
-  case VolumeDown
-  case Mute
-  case F18
-  case F19
-  case F20
-  case F5
-  case F6
-  case F7
-  case F3
-  case F8
-  case F9
-  case F11
-  case F13
-  case F16
-  case F14
-  case F10
-  case F12
-  case F15
-  case Help
-  case Home
-  case PageUp
-  case ForwardDelete
-  case F4
-  case End
-  case F2
-  case PageDown
-  case F1
-  case LeftArrow
-  case RightArrow
-  case DownArrow
-  case UpArrow
+  case `return`
+  case tab
+  case space
+  case delete
+  case escape
+  case command
+  case shift
+  case capsLock
+  case option
+  case control
+  case rightShift
+  case rightOption
+  case rightControl
+  case function
+  case f17
+  case volumeUp
+  case volumeDown
+  case mute
+  case f18
+  case f19
+  case f20
+  case f5
+  case f6
+  case f7
+  case f3
+  case f8
+  case f9
+  case f11
+  case f13
+  case f16
+  case f14
+  case f10
+  case f12
+  case f15
+  case help
+  case home
+  case pageUp
+  case forwardDelete
+  case f4
+  case end
+  case f2
+  case pageDown
+  case f1
+  case leftArrow
+  case rightArrow
+  case downArrow
+  case upArrow
 
   // "The following were discovered using the Key Codes app"
   // ^^^ Above comment grandfathered in from another codebase. Not totally sure what it means! --DRC
-  case Backspace
-  case Enter
-  case LessThan
-  case GreaterThan
-  case LeftBrace
-  case RightBrace
-  case RightParen
-  case LeftParen
-  case Bang
-  case Pipe
-  case Colon
-  case Backtick
-  case Apostrophe
-  case Ampersand
-  case Percent
-  case QuestionMark
-  case Splat
-  case Tilde
-  case At
-  case Dollar
-  case Caret
-  case Plus
-  case Hash
+  case backspace
+  case enter
+  case lessThan
+  case greaterThan
+  case leftBrace
+  case rightBrace
+  case rightParen
+  case leftParen
+  case bang
+  case pipe
+  case colon
+  case backtick
+  case apostrophe
+  case ampersand
+  case percent
+  case questionMark
+  case splat
+  case tilde
+  case at
+  case dollar
+  case caret
+  case plus
+  case hash
 
 
   var keyCode: CGKeyCode {
     switch self {
-    case A : return 0x00
-    case S : return 0x01
-    case D : return 0x02
-    case F : return 0x03
-    case H : return 0x04
-    case G : return 0x05
-    case Z : return 0x06
-    case X : return 0x07
-    case C : return 0x08
-    case V : return 0x09
-    case B : return 0x0B
-    case Q : return 0x0C
-    case W : return 0x0D
-    case E : return 0x0E
-    case R : return 0x0F
-    case Y : return 0x10
-    case Tee : return 0x11  // (see comment above about using "T"!)
-    case One : return 0x12
-    case Two : return 0x13
-    case Three : return 0x14
-    case Four : return 0x15
-    case Five : return 0x17
-    case Six : return 0x16
-    case Equals : return 0x18
-    case Nine : return 0x19
-    case Seven : return 0x1A
-    case Dash : return 0x1B
-    case Eight : return 0x1C
-    case Zero : return 0x1D
-    case RightBracket : return 0x1E
-    case O : return 0x1F
-    case U : return 0x20
-    case LeftBracket : return 0x21
-    case I : return 0x22
-    case P : return 0x23
-    case L : return 0x25
-    case J : return 0x26
-    case Quote : return 0x27
-    case K : return 0x28
-    case Semicolon : return 0x29
-    case Backslash : return 0x2A
-    case Comma : return 0x2B
-    case Slash : return 0x2C
-    case N : return 0x2D
-    case M : return 0x2E
-    case Period : return 0x2F
-    case Grave : return 0x32
-    case KeypadDecimal : return 0x41
-    case KeypadMultiply : return 0x43
-    case KeypadPlus : return 0x45
-    case KeypadClear : return 0x47
-    case KeypadDivide : return 0x4B
-    case KeypadEnter : return 0x4C
-    case KeypadMinus : return 0x4E
-    case KeypadEquals : return 0x51
-    case Keypad0 : return 0x52
-    case Keypad1 : return 0x53
-    case Keypad2 : return 0x54
-    case Keypad3 : return 0x55
-    case Keypad4 : return 0x56
-    case Keypad5 : return 0x57
-    case Keypad6 : return 0x58
-    case Keypad7 : return 0x59
-    case Keypad8 : return 0x5B
-    case Keypad9 : return 0x5C
+    case .a : return 0x00
+    case .s : return 0x01
+    case .d : return 0x02
+    case .f : return 0x03
+    case .h : return 0x04
+    case .g : return 0x05
+    case .z : return 0x06
+    case .x : return 0x07
+    case .c : return 0x08
+    case .v : return 0x09
+    case .b : return 0x0B
+    case .q : return 0x0C
+    case .w : return 0x0D
+    case .e : return 0x0E
+    case .r : return 0x0F
+    case .y : return 0x10
+    case .tee : return 0x11  // (see comment above about using "T"!)
+    case .one : return 0x12
+    case .two : return 0x13
+    case .three : return 0x14
+    case .four : return 0x15
+    case .five : return 0x17
+    case .six : return 0x16
+    case .equals : return 0x18
+    case .nine : return 0x19
+    case .seven : return 0x1A
+    case .dash : return 0x1B
+    case .eight : return 0x1C
+    case .zero : return 0x1D
+    case .rightBracket : return 0x1E
+    case .o : return 0x1F
+    case .u : return 0x20
+    case .leftBracket : return 0x21
+    case .i : return 0x22
+    case .p : return 0x23
+    case .l : return 0x25
+    case .j : return 0x26
+    case .quote : return 0x27
+    case .k : return 0x28
+    case .semicolon : return 0x29
+    case .backslash : return 0x2A
+    case .comma : return 0x2B
+    case .slash : return 0x2C
+    case .n : return 0x2D
+    case .m : return 0x2E
+    case .period : return 0x2F
+    case .grave : return 0x32
+    case .keypadDecimal : return 0x41
+    case .keypadMultiply : return 0x43
+    case .keypadPlus : return 0x45
+    case .keypadClear : return 0x47
+    case .keypadDivide : return 0x4B
+    case .keypadEnter : return 0x4C
+    case .keypadMinus : return 0x4E
+    case .keypadEquals : return 0x51
+    case .keypad0 : return 0x52
+    case .keypad1 : return 0x53
+    case .keypad2 : return 0x54
+    case .keypad3 : return 0x55
+    case .keypad4 : return 0x56
+    case .keypad5 : return 0x57
+    case .keypad6 : return 0x58
+    case .keypad7 : return 0x59
+    case .keypad8 : return 0x5B
+    case .keypad9 : return 0x5C
 
       /* keycodes for keys that are independent of keyboard layout*/
-    case Return : return 0x24
-    case Tab : return 0x30
-    case Space : return 0x31
-    case Delete : return 0x33
-    case Escape : return 0x35
-    case Command : return 0x37
-    case Shift : return 0x38
-    case CapsLock : return 0x39
-    case Option : return 0x3A
-    case Control : return 0x3B
-    case RightShift : return 0x3C
-    case RightOption : return 0x3D
-    case RightControl : return 0x3E
-    case Function : return 0x3F
-    case F17 : return 0x40
-    case VolumeUp : return 0x48
-    case VolumeDown : return 0x49
-    case Mute : return 0x4A
-    case F18 : return 0x4F
-    case F19 : return 0x50
-    case F20 : return 0x5A
-    case F5 : return 0x60
-    case F6 : return 0x61
-    case F7 : return 0x62
-    case F3 : return 0x63
-    case F8 : return 0x64
-    case F9 : return 0x65
-    case F11 : return 0x67
-    case F13 : return 0x69
-    case F16 : return 0x6A
-    case F14 : return 0x6B
-    case F10 : return 0x6D
-    case F12 : return 0x6F
-    case F15 : return 0x71
-    case Help : return 0x72
-    case Home : return 0x73
-    case PageUp : return 0x74
-    case ForwardDelete : return 0x75
-    case F4 : return 0x76
-    case End : return 0x77
-    case F2 : return 0x78
-    case PageDown : return 0x79
-    case F1 : return 0x7A
-    case LeftArrow : return 0x7B
-    case RightArrow : return 0x7C
-    case DownArrow : return 0x7D
-    case UpArrow : return 0x7E
+    case .`return` : return 0x24
+    case .tab : return 0x30
+    case .space : return 0x31
+    case .delete : return 0x33
+    case .escape : return 0x35
+    case .command : return 0x37
+    case .shift : return 0x38
+    case .capsLock : return 0x39
+    case .option : return 0x3A
+    case .control : return 0x3B
+    case .rightShift : return 0x3C
+    case .rightOption : return 0x3D
+    case .rightControl : return 0x3E
+    case .function : return 0x3F
+    case .f17 : return 0x40
+    case .volumeUp : return 0x48
+    case .volumeDown : return 0x49
+    case .mute : return 0x4A
+    case .f18 : return 0x4F
+    case .f19 : return 0x50
+    case .f20 : return 0x5A
+    case .f5 : return 0x60
+    case .f6 : return 0x61
+    case .f7 : return 0x62
+    case .f3 : return 0x63
+    case .f8 : return 0x64
+    case .f9 : return 0x65
+    case .f11 : return 0x67
+    case .f13 : return 0x69
+    case .f16 : return 0x6A
+    case .f14 : return 0x6B
+    case .f10 : return 0x6D
+    case .f12 : return 0x6F
+    case .f15 : return 0x71
+    case .help : return 0x72
+    case .home : return 0x73
+    case .pageUp : return 0x74
+    case .forwardDelete : return 0x75
+    case .f4 : return 0x76
+    case .end : return 0x77
+    case .f2 : return 0x78
+    case .pageDown : return 0x79
+    case .f1 : return 0x7A
+    case .leftArrow : return 0x7B
+    case .rightArrow : return 0x7C
+    case .downArrow : return 0x7D
+    case .upArrow : return 0x7E
 
     // The following were discovered using the Key Codes app
-    case Backspace : return 0x33
-    case Enter : return 0x24
-    case LessThan : return 0x2B
-    case GreaterThan : return 0x2F
-    case LeftBrace : return 0x21
-    case .RightBrace : return 0x1E
-    case RightParen : return 0x1D
-    case LeftParen : return 0x19
-    case Bang : return 0x12
-    case Pipe : return 0x2A
-    case Colon : return 0x29
-    case Backtick : return 0x32
-    case Apostrophe : return 0x27
-    case Ampersand : return 0x1A
-    case Percent : return 0x17
-    case QuestionMark : return 0x2C
-    case Splat : return 0x1C
-    case Tilde : return 0x32
-    case At : return 0x13
-    case Dollar : return 0x15
-    case Caret : return 0x16
-    case Plus : return 0x18
-    case Hash : return 0x14
-    case Underscore : return 0x1B
+    case .backspace : return 0x33
+    case .enter : return 0x24
+    case .lessThan : return 0x2B
+    case .greaterThan : return 0x2F
+    case .leftBrace : return 0x21
+    case .rightBrace : return 0x1E
+    case .rightParen : return 0x1D
+    case .leftParen : return 0x19
+    case .bang : return 0x12
+    case .pipe : return 0x2A
+    case .colon : return 0x29
+    case .backtick : return 0x32
+    case .apostrophe : return 0x27
+    case .ampersand : return 0x1A
+    case .percent : return 0x17
+    case .questionMark : return 0x2C
+    case .splat : return 0x1C
+    case .tilde : return 0x32
+    case .at : return 0x13
+    case .dollar : return 0x15
+    case .caret : return 0x16
+    case .plus : return 0x18
+    case .hash : return 0x14
+    case .underscore : return 0x1B
     }
   }
 
   var needsShift: Bool {
     switch self {
-      case .Quote:                    fallthrough
-      case .LessThan:                 fallthrough
-      case .GreaterThan:              fallthrough
-      case .LeftBrace:                fallthrough
-      case .RightBrace:               fallthrough
-      case .RightParen:               fallthrough
-      case .LeftParen:                fallthrough
-      case .Bang:                     fallthrough
-      case .Pipe:                     fallthrough
-      case .Colon:                    fallthrough
-      case .Ampersand:                fallthrough
-      case .Percent:                  fallthrough
-      case .QuestionMark:             fallthrough
-      case .Splat:                    fallthrough
-      case .Tilde:                    fallthrough
-      case .At:                       fallthrough
-      case .Dollar:                   fallthrough
-      case .Caret:                    fallthrough
-      case .Plus:                     fallthrough
-      case .Underscore:               fallthrough
-      case .Hash:                                 return true
+      case .quote:                    fallthrough
+      case .lessThan:                 fallthrough
+      case .greaterThan:              fallthrough
+      case .leftBrace:                fallthrough
+      case .rightBrace:               fallthrough
+      case .rightParen:               fallthrough
+      case .leftParen:                fallthrough
+      case .bang:                     fallthrough
+      case .pipe:                     fallthrough
+      case .colon:                    fallthrough
+      case .ampersand:                fallthrough
+      case .percent:                  fallthrough
+      case .questionMark:             fallthrough
+      case .splat:                    fallthrough
+      case .tilde:                    fallthrough
+      case .at:                       fallthrough
+      case .dollar:                   fallthrough
+      case .caret:                    fallthrough
+      case .plus:                     fallthrough
+      case .underscore:               fallthrough
+      case .hash:                                 return true
 
       default: return false
     }
   }
 
-  static func from(character character: Character) -> Key? {
+  static func from(character: Character) -> Key? {
     return from(string: String(character))
   }
 
-  static func from(string string: String) -> Key? {
-    switch string.uppercaseString {
-    case "A":            return .A
-    case "S":            return .S
-    case "D":            return .D
-    case "F":            return .F
-    case "H":            return .H
-    case "G":            return .G
-    case "Z":            return .Z
-    case "X":            return .X
-    case "C":            return .C
-    case "V":            return .V
-    case "B":            return .B
-    case "Q":            return .Q
-    case "W":            return .W
-    case "E":            return .E
-    case "R":            return .R
-    case "Y":            return .Y
-    case "T":            return .Tee
-    case "1":            return .One
-    case "2":            return .Two
-    case "3":            return .Three
-    case "4":            return .Four
-    case "5":            return .Five
-    case "6":            return .Six
-    case "=":            return .Equals
-    case "9":            return .Nine
-    case "7":            return .Seven
-    case "-":            return .Dash
-    case "8":            return .Eight
-    case "0":            return .Zero
-    case "]":            return .RightBracket
-    case "O":            return .O
-    case "U":            return .U
-    case "[":            return .LeftBracket
-    case "I":            return .I
-    case "P":            return .P
-    case "L":            return .L
-    case "J":            return .J
-    case "\"":           return .Quote
-    case "K":            return .K
-    case ";":            return .Semicolon
-    case "\\":           return .Backslash
-    case ",":            return .Comma
-    case "/":            return .Slash
-    case "N":            return .N
-    case "M":            return .M
+  static func from(string: String) -> Key? {
+    switch string.uppercased() {
+    case "A":            return .a
+    case "S":            return .s
+    case "D":            return .d
+    case "F":            return .f
+    case "H":            return .h
+    case "G":            return .g
+    case "Z":            return .z
+    case "X":            return .x
+    case "C":            return .c
+    case "V":            return .v
+    case "B":            return .b
+    case "Q":            return .q
+    case "W":            return .w
+    case "E":            return .e
+    case "R":            return .r
+    case "Y":            return .y
+    case "T":            return .tee
+    case "1":            return .one
+    case "2":            return .two
+    case "3":            return .three
+    case "4":            return .four
+    case "5":            return .five
+    case "6":            return .six
+    case "=":            return .equals
+    case "9":            return .nine
+    case "7":            return .seven
+    case "-":            return .dash
+    case "8":            return .eight
+    case "0":            return .zero
+    case "]":            return .rightBracket
+    case "O":            return .o
+    case "U":            return .u
+    case "[":            return .leftBracket
+    case "I":            return .i
+    case "P":            return .p
+    case "L":            return .l
+    case "J":            return .j
+    case "\"":           return .quote
+    case "K":            return .k
+    case ";":            return .semicolon
+    case "\\":           return .backslash
+    case ",":            return .comma
+    case "/":            return .slash
+    case "N":            return .n
+    case "M":            return .m
     default: break
     }
 
     switch string {
-    case ".":                   return .Period
-    case "<Grave>":             return .Grave
-    case "<KeypadDecimal>":     return .KeypadDecimal
-    case "<KeypadMultiply>":    return .KeypadMultiply
-    case "<KeypadPlus>":        return .KeypadPlus
-    case "<KeypadClear>":       return .KeypadClear
-    case "<KeypadDivide>":      return .KeypadDivide
-    case "<KeypadEnter>":       return .KeypadEnter
-    case "<KeypadMinus>":       return .KeypadMinus
-    case "<KeypadEquals>":      return .KeypadEquals
-    case "<Keypad0>":           return .Keypad0
-    case "<Keypad1>":           return .Keypad1
-    case "<Keypad2>":           return .Keypad2
-    case "<Keypad3>":           return .Keypad3
-    case "<Keypad4>":           return .Keypad4
-    case "<Keypad5>":           return .Keypad5
-    case "<Keypad6>":           return .Keypad6
-    case "<Keypad7>":           return .Keypad7
-    case "<Keypad8>":           return .Keypad8
-    case "<Keypad9>":           return .Keypad9
+    case ".":                   return .period
+    case "<Grave>":             return .grave
+    case "<KeypadDecimal>":     return .keypadDecimal
+    case "<KeypadMultiply>":    return .keypadMultiply
+    case "<KeypadPlus>":        return .keypadPlus
+    case "<KeypadClear>":       return .keypadClear
+    case "<KeypadDivide>":      return .keypadDivide
+    case "<KeypadEnter>":       return .keypadEnter
+    case "<KeypadMinus>":       return .keypadMinus
+    case "<KeypadEquals>":      return .keypadEquals
+    case "<Keypad0>":           return .keypad0
+    case "<Keypad1>":           return .keypad1
+    case "<Keypad2>":           return .keypad2
+    case "<Keypad3>":           return .keypad3
+    case "<Keypad4>":           return .keypad4
+    case "<Keypad5>":           return .keypad5
+    case "<Keypad6>":           return .keypad6
+    case "<Keypad7>":           return .keypad7
+    case "<Keypad8>":           return .keypad8
+    case "<Keypad9>":           return .keypad9
 
     /* keycodes for keys that are independent of keyboard layout*/
-    case "<Return>":            return .Return
-    case "<Tab>":               return .Tab
-    case " ":                  return .Space
-    case "<Delete>":            return .Delete
-    case "<Escape>":            return .Escape
-    case "<Command>":           return .Command
-    case "<Shift>":             return .Shift
-    case "<CapsLock>":          return .CapsLock
-    case "<Option>":            return .Option
-    case "<Control>":           return .Control
-    case "<RightShift>":        return .RightShift
-    case "<RightOption>":       return .RightOption
-    case "<RightControl>":      return .RightControl
-    case "<Function>":          return .Function
-    case "<F17>":               return .F17
-    case "<VolumeUp>":          return .VolumeUp
-    case "<VolumeDown>":        return .VolumeDown
-    case "<Mute>":              return .Mute
-    case "<F18>":               return .F18
-    case "<F19>":               return .F19
-    case "<F20>":               return .F20
-    case "<F5>":                return .F5
-    case "<F6>":                return .F6
-    case "<F7>":                return .F7
-    case "<F3>":                return .F3
-    case "<F8>":                return .F8
-    case "<F9>":                return .F9
-    case "<F11>":               return .F11
-    case "<F13>":               return .F13
-    case "<F16>":               return .F16
-    case "<F14>":               return .F14
-    case "<F10>":               return .F10
-    case "<F12>":               return .F12
-    case "<F15>":               return .F15
-    case "<Help>":              return .Help
-    case "<Home>":              return .Home
-    case "<PageUp>":            return .PageUp
-    case "<ForwardDelete>":     return .ForwardDelete
-    case "<F4>":                return .F4
-    case "<End>":               return .End
-    case "<F2>":                return .F2
-    case "<PageDown>":          return .PageDown
-    case "<F1>":                return .F1
-    case "<LeftArrow>":         return .LeftArrow
-    case "<RightArrow>":        return .RightArrow
-    case "<DownArrow>":         return .DownArrow
-    case "<UpArrow>":           return .UpArrow
+    case "<Return>":            return .return
+    case "<Tab>":               return .tab
+    case " ":                  return .space
+    case "<Delete>":            return .delete
+    case "<Escape>":            return .escape
+    case "<Command>":           return .command
+    case "<Shift>":             return .shift
+    case "<CapsLock>":          return .capsLock
+    case "<Option>":            return .option
+    case "<Control>":           return .control
+    case "<RightShift>":        return .rightShift
+    case "<RightOption>":       return .rightOption
+    case "<RightControl>":      return .rightControl
+    case "<Function>":          return .function
+    case "<F17>":               return .f17
+    case "<VolumeUp>":          return .volumeUp
+    case "<VolumeDown>":        return .volumeDown
+    case "<Mute>":              return .mute
+    case "<F18>":               return .f18
+    case "<F19>":               return .f19
+    case "<F20>":               return .f20
+    case "<F5>":                return .f5
+    case "<F6>":                return .f6
+    case "<F7>":                return .f7
+    case "<F3>":                return .f3
+    case "<F8>":                return .f8
+    case "<F9>":                return .f9
+    case "<F11>":               return .f11
+    case "<F13>":               return .f13
+    case "<F16>":               return .f16
+    case "<F14>":               return .f14
+    case "<F10>":               return .f10
+    case "<F12>":               return .f12
+    case "<F15>":               return .f15
+    case "<Help>":              return .help
+    case "<Home>":              return .home
+    case "<PageUp>":            return .pageUp
+    case "<ForwardDelete>":     return .forwardDelete
+    case "<F4>":                return .f4
+    case "<End>":               return .end
+    case "<F2>":                return .f2
+    case "<PageDown>":          return .pageDown
+    case "<F1>":                return .f1
+    case "<LeftArrow>":         return .leftArrow
+    case "<RightArrow>":        return .rightArrow
+    case "<DownArrow>":         return .downArrow
+    case "<UpArrow>":           return .upArrow
 
     // The following were discovered using the Key Codes app
-    case "<Backspace>":         return .Backspace
-    case "<Enter>":             return .Enter
-    case "<":                   return .LessThan
-    case ">":                   return .GreaterThan
-    case "{":                   return .LeftBrace
-    case "}":                   return .RightBrace
-    case ")":                   return .RightParen
-    case "(":                   return .LeftParen
-    case "!":                   return .Bang
-    case "|":                   return .Pipe
-    case ":":                   return .Colon
-    case "`":                   return .Backtick
-    case "'":                   return .Apostrophe
-    case "&":                   return .Ampersand
-    case "%":                   return .Percent
-    case "?":                   return .QuestionMark
-    case "*":                   return .Splat
-    case "~":                   return .Tilde
-    case "@":                   return .At
-    case "$":                   return .Dollar
-    case "^":                   return .Caret
-    case "+":                   return .Plus
-    case "#":                   return .Hash
+    case "<Backspace>":         return .backspace
+    case "<Enter>":             return .enter
+    case "<":                   return .lessThan
+    case ">":                   return .greaterThan
+    case "{":                   return .leftBrace
+    case "}":                   return .rightBrace
+    case ")":                   return .rightParen
+    case "(":                   return .leftParen
+    case "!":                   return .bang
+    case "|":                   return .pipe
+    case ":":                   return .colon
+    case "`":                   return .backtick
+    case "'":                   return .apostrophe
+    case "&":                   return .ampersand
+    case "%":                   return .percent
+    case "?":                   return .questionMark
+    case "*":                   return .splat
+    case "~":                   return .tilde
+    case "@":                   return .at
+    case "$":                   return .dollar
+    case "^":                   return .caret
+    case "+":                   return .plus
+    case "#":                   return .hash
 
     // Had to enter these manually; maybe there’s a better way? --DRC
-    case "_":                   return .Underscore  // requires SHIFT key.
+    case "_":                   return .underscore  // requires SHIFT key.
 
     default:                    return nil
     }

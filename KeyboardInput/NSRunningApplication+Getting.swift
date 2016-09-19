@@ -10,7 +10,7 @@ import Foundation
 
 extension NSRunningApplication {
   class func app(withBundleIdentifier bundleIdentifier: String) -> NSRunningApplication! {
-    let matchingProcesses = NSRunningApplication.runningApplicationsWithBundleIdentifier(bundleIdentifier)
+    let matchingProcesses = NSRunningApplication.runningApplications(withBundleIdentifier: bundleIdentifier)
     if matchingProcesses.count == 0 {
       print("Couldn’t find app with identifier '\(bundleIdentifier)'")
       return nil

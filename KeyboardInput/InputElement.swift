@@ -9,6 +9,6 @@
 import Foundation
 
 public enum InputElement {
-  case Word(String)
-  case Break
+  case word(String)
+  case `break`
 }

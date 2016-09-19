@@ -12,11 +12,11 @@ import XCTest
 class CommandProcessor_Tests: XCTestCase {
   var commandProcessor: CommandProcessor = CommandProcessor(commandRecognizers: VimCompatibleCommands)
 
-  internal func resultOf(input: String) -> String {
+  internal func resultOf(_ input: String) -> String {
     var result: String = ""
     self.commandProcessor.outputStream.subscribe { result = result + $0 }
 
-    let words = input.componentsSeparatedByString(" ")
+    let words = input.components(separatedBy: " ")
     for word in words {
       self.commandProcessor.caughtWord(word)
     }

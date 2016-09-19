@@ -15,13 +15,13 @@ final class KeyDestination {
     self.app = app
   }
 
-  func post(keyCode: UInt16, flags: CGEventFlags = CGEventFlags(rawValue: 0)!, isDown: Bool) {
+  func post(_ keyCode: UInt16, flags: CGEventFlags = CGEventFlags(rawValue: 0), isDown: Bool) {
     // Create an key event with this code (& flags) and post it to our app’s process.
     // TODO: Create key events using CGSCreateKeyboardEventOfLength? (I have gotten warnings in the console about this…) --DRC
-    let eventSource = CGEventSourceCreate(CGEventSourceStateID.CombinedSessionState)
-    let keyEvent: CGEventRef = CGEventCreateKeyboardEvent(eventSource, CGKeyCode(keyCode), isDown)!
-    CGEventSetFlags(keyEvent, flags)
-    CGEventPostToPSN(self.app.processSerialNumber.ptr(), keyEvent)
+    let eventSource = CGEventSource(stateID: CGEventSourceStateID.combinedSessionState)
+    let keyEvent: CGEvent = CGEvent(keyboardEventSource: eventSource, virtualKey: CGKeyCode(keyCode), keyDown: isDown)!
+    keyEvent.flags = flags
+    keyEvent.postToPSN(processSerialNumber: self.app.processSerialNumber.ptr())
 
     // Maybe this is a dumb way to solve this, but let's sleep for just a moment so they events don’t arrive out of order.
     usleep(100)

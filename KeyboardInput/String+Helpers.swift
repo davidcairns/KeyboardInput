@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
   public var isSingleCharacter: Bool {
-    return 1 == self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+    return 1 == self.lengthOfBytes(using: String.Encoding.utf8)
   }
 
   public var isUpper: Bool {

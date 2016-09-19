@@ -15,7 +15,7 @@ import Cocoa
  */
 
 final class DCWindowController: NSWindowController {
-  override func noResponderFor(eventSelector: Selector) {}
-  override func doCommandBySelector(aSelector: Selector) {}
-  override func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool { return true }
+  override func noResponder(for eventSelector: Selector) {}
+  override func doCommand(by aSelector: Selector) {}
+  override func `try`(toPerform anAction: Selector, with anObject: Any?) -> Bool { return true }
 }

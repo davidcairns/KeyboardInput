@@ -12,9 +12,9 @@ public final class CommandProcessor {
   public let inputStream: Stream<InputElement> = Stream<InputElement>()
   public let outputStream: Stream<String> = Stream<String>()
 
-  private var currentWord: String = ""
+  fileprivate var currentWord: String = ""
 
-  private var currentTextHandler: TextHandler?
+  fileprivate var currentTextHandler: TextHandler?
   let commandRecognizers: [CommandRecognizer]
 
   init(commandRecognizers: [CommandRecognizer]) {
@@ -23,7 +23,7 @@ public final class CommandProcessor {
     // Hook up our input stream.
     self.inputStream.subscribe { input in
       switch input {
-      case let .Word(word):
+      case let .word(word):
         self.handleWord(word)
       default:
         self.handleBreak()
@@ -31,7 +31,7 @@ public final class CommandProcessor {
     }
   }
 
-  private func handleWord(word: String) {
+  fileprivate func handleWord(_ word: String) {
     // If this word is a shorthand, just emit it.
     // NOTE: This doesn't change the current text handler; so if you're in the middle of
     // a "say" operation, you will remain inside it.
@@ -44,7 +44,7 @@ public final class CommandProcessor {
     // digits), just output it (sans any commas).
     // For example: 2,098.6 -> 2098.6
     if word.isNumber {
-      let sansCommas = word.stringByReplacingOccurrencesOfString(",", withString: "")
+      let sansCommas = word.replacingOccurrences(of: ",", with: "")
       self.outputStream.emit(sansCommas)
       return
     }
@@ -61,11 +61,11 @@ public final class CommandProcessor {
     for recognizer in self.commandRecognizers {
       let result = recognizer.handle(word)
       switch result {
-        case .Recognizing(let textHandler):
+        case .recognizing(let textHandler):
           // Use the recognizer from here on out (but not for the instigating command word!)!
           self.currentTextHandler = textHandler
           return
-        case .Recognized(let textHandler):
+        case .recognized(let textHandler):
           // Just use this recognizer as a one-shot!
           let transformed = textHandler.handle(word)
           self.outputStream.emit(transformed)
@@ -77,7 +77,7 @@ public final class CommandProcessor {
     // If we've gotten here, we're not handling this word.
     print("<¿\(word)?>", terminator: "")
   }
-  private func handleBreak() {
+  fileprivate func handleBreak() {
     // Breaks always terminates our current text handler.
     self.currentTextHandler = nil
   }
@@ -89,38 +89,38 @@ public final class CommandProcessor {
     self.currentWord = ""
   }
 
-  private static func cleanedUp(word word: String) -> String {
+  fileprivate static func cleanedUp(word: String) -> String {
     // Make sure it's lower-case.
-    var result = word.lowercaseString
+    var result = word.lowercased()
 
     // Remove any spaces.
-    result = result.stringByReplacingOccurrencesOfString(" ", withString: "")
-    if result.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 { return "" }
+    result = result.replacingOccurrences(of: " ", with: "")
+    if result.lengthOfBytes(using: String.Encoding.utf8) == 0 { return "" }
 
     // Remove any interior hyphens / dashes.
     if String(result.characters.first!) != "-" {
-      result = result.stringByReplacingOccurrencesOfString("-", withString: "")
+      result = result.replacingOccurrences(of: "-", with: "")
     }
 
     return result
   }
-  public func caughtWord(word: String) {
+  public func caughtWord(_ word: String) {
     let cleanedWord = CommandProcessor.cleanedUp(word: word)
-    if cleanedWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+    if cleanedWord.lengthOfBytes(using: String.Encoding.utf8) > 0 {
       print("<\(cleanedWord)>", terminator: "")
-      self.inputStream.emit(InputElement.Word(cleanedWord))
+      self.inputStream.emit(InputElement.word(cleanedWord))
     }
   }
 
-  func appendCharacter(string: String) {
+  func appendCharacter(_ string: String) {
 //    print("\(string).")
     // See if we've just finished a word!
-    let currentLength = self.currentWord.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+    let currentLength = self.currentWord.lengthOfBytes(using: String.Encoding.utf8)
     if currentLength != 0 && string == " " {
       self.flushCurrentWord()
     }
     else {
-      self.currentWord.appendContentsOf(string)
+      self.currentWord.append(string)
     }
   }
 }

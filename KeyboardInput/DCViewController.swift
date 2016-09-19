@@ -50,46 +50,46 @@ public final class DCViewController : NSViewController {
 
     // For some reason, we need specifically to request to receive these events.
     // FIXME: Maybe we should move all this code into the WindowController? --DRC
-    NSEvent.addLocalMonitorForEventsMatchingMask(.KeyDownMask) { (event) in
-      self.keyDown(event)
+    NSEvent.addLocalMonitorForEvents(matching: .keyDown) { (event) in
+      self.keyDown(with: event)
       return event
     }
-    NSEvent.addLocalMonitorForEventsMatchingMask(.KeyUpMask) { (event) in
-      self.keyUp(event)
+    NSEvent.addLocalMonitorForEvents(matching: .keyUp) { (event) in
+      self.keyUp(with: event)
       return event
     }
-    NSEvent.addLocalMonitorForEventsMatchingMask(.FlagsChangedMask) { (event) in
-      self.flagsChanged(event)
+    NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { (event) in
+      self.flagsChanged(with: event)
       return event
     }
   }
 
 
   // MARK: - "Break" timer
-  class func scheduledBreakTimer(on on: DCViewController) -> NSTimer {
-    return NSTimer.scheduledTimerWithTimeInterval(AUTO_BREAK_TIME, target: on, selector: #selector(DCViewController.insertBreak), userInfo: nil, repeats: false)
+  class func scheduledBreakTimer(on: DCViewController) -> Foundation.Timer {
+    return Foundation.Timer.scheduledTimer(timeInterval: AUTO_BREAK_TIME, target: on, selector: #selector(DCViewController.insertBreak), userInfo: nil, repeats: false)
   }
   func rescheduleBreakTimer() {
     if let t = self.breakTimer { t.invalidate() }
     self.breakTimer = DCViewController.scheduledBreakTimer(on: self)
   }
-  var breakTimer: NSTimer! = nil
+  var breakTimer: Foundation.Timer! = nil
   public func insertBreak() {
     // Flush the current word and insert a break.
     self.commandProcessor.flushCurrentWord()
 
     print("<!>", terminator: "")
-    self.commandProcessor.inputStream.emit(InputElement.Break)
+    self.commandProcessor.inputStream.emit(InputElement.break)
   }
   
 
   // MARK: - Raw events
-  public override func keyDown(theEvent: NSEvent) {
+  public override func keyDown(with theEvent: NSEvent) {
     // The user just did something... reschedule the break timer!
     rescheduleBreakTimer()
   }
 
-  public override func keyUp(theEvent: NSEvent) {
+  public override func keyUp(with theEvent: NSEvent) {
     self.commandProcessor.appendCharacter((theEvent.characters ?? ""))
 
     // The user just did something... reschedule the break timer!

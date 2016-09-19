@@ -14,30 +14,30 @@ func ==(lhs: KeyPress, rhs: KeyPress) -> Bool {
 }
 
 class KeyPress_Tests: XCTestCase {
-  func testEscape() { XCTAssertEqual(Key.Escape, Key.from(string: "<Escape>")) }
-  func testReturn() { XCTAssertEqual(Key.Return, Key.from(string: "<Return>")) }
+  func testEscape() { XCTAssertEqual(Key.escape, Key.from(string: "<Escape>")) }
+  func testReturn() { XCTAssertEqual(Key.return, Key.from(string: "<Return>")) }
   func testRunEscape() { XCTAssertEqual(1, KeyPress.from(string: "<Escape>").count) }
   func testRunReturn() { XCTAssertEqual(1, KeyPress.from(string: "<Return>").count) }
-  func testPressEscapeKey() { XCTAssertEqual(Key.Escape, KeyPress.from(string: "<Escape>").first!.key) }
+  func testPressEscapeKey() { XCTAssertEqual(Key.escape, KeyPress.from(string: "<Escape>").first!.key) }
   func testPressEscapeModifiers() { XCTAssertEqual([], KeyPress.from(string: "<Escape>").first!.modifiers) }
-  func testPressReturnKey() { XCTAssertEqual(Key.Return, KeyPress.from(string: "<Return>").first!.key) }
+  func testPressReturnKey() { XCTAssertEqual(Key.return, KeyPress.from(string: "<Return>").first!.key) }
   func testPressReturnModifiers() { XCTAssertEqual([], KeyPress.from(string: "<Return>").first!.modifiers) }
 
-  func testSpace()        { XCTAssertEqual(Key.Space, Key.from(string: " ")) }
-  func testLeftParen()    { XCTAssertEqual(Key.LeftParen, Key.from(string: "(")) }
-  func testRightParen()   { XCTAssertEqual(Key.RightParen, Key.from(string: ")")) }
-  func testLeftBrace()    { XCTAssertEqual(Key.LeftBrace, Key.from(string: "{")) }
-  func testRightBrace()   { XCTAssertEqual(Key.RightBrace, Key.from(string: "}")) }
-  func testLeftBracket()  { XCTAssertEqual(Key.LeftBracket, Key.from(string: "[")) }
-  func testRightBracket() { XCTAssertEqual(Key.RightBracket, Key.from(string: "]")) }
-  func testColon()        { XCTAssertEqual(Key.Colon, Key.from(string: ":")) }
+  func testSpace()        { XCTAssertEqual(Key.space, Key.from(string: " ")) }
+  func testLeftParen()    { XCTAssertEqual(Key.leftParen, Key.from(string: "(")) }
+  func testRightParen()   { XCTAssertEqual(Key.rightParen, Key.from(string: ")")) }
+  func testLeftBrace()    { XCTAssertEqual(Key.leftBrace, Key.from(string: "{")) }
+  func testRightBrace()   { XCTAssertEqual(Key.rightBrace, Key.from(string: "}")) }
+  func testLeftBracket()  { XCTAssertEqual(Key.leftBracket, Key.from(string: "[")) }
+  func testRightBracket() { XCTAssertEqual(Key.rightBracket, Key.from(string: "]")) }
+  func testColon()        { XCTAssertEqual(Key.colon, Key.from(string: ":")) }
 
-  func test_a_DoesntHaveShift() { XCTAssertFalse(KeyPress.from(character: "a")!.modifiers.contains(ModifierKey.Shift)) }
-  func test_A_HasShift() { XCTAssertTrue(KeyPress.from(character: "A")!.modifiers.contains(ModifierKey.Shift)) }
-  func testUnderscoreHasShift() { XCTAssertTrue(KeyPress.from(character: "_")!.modifiers.contains(ModifierKey.Shift)) }
-  func testLeftParenHasShift() { XCTAssertTrue(KeyPress.from(character: "(")!.modifiers.contains(ModifierKey.Shift)) }
-  func testRightParenHasShift() { XCTAssertTrue(KeyPress.from(character: ")")!.modifiers.contains(ModifierKey.Shift)) }
-  func testLeftBraceHasShift() { XCTAssertTrue(KeyPress.from(character: "{")!.modifiers.contains(ModifierKey.Shift)) }
-  func testRightBraceHasShift() { XCTAssertTrue(KeyPress.from(character: "}")!.modifiers.contains(ModifierKey.Shift)) }
-  func testHashHasShift() { XCTAssertTrue(KeyPress.from(character: "#")!.modifiers.contains(ModifierKey.Shift)) }
+  func test_a_DoesntHaveShift() { XCTAssertFalse(KeyPress.from(character: "a")!.modifiers.contains(ModifierKey.shift)) }
+  func test_A_HasShift() { XCTAssertTrue(KeyPress.from(character: "A")!.modifiers.contains(ModifierKey.shift)) }
+  func testUnderscoreHasShift() { XCTAssertTrue(KeyPress.from(character: "_")!.modifiers.contains(ModifierKey.shift)) }
+  func testLeftParenHasShift() { XCTAssertTrue(KeyPress.from(character: "(")!.modifiers.contains(ModifierKey.shift)) }
+  func testRightParenHasShift() { XCTAssertTrue(KeyPress.from(character: ")")!.modifiers.contains(ModifierKey.shift)) }
+  func testLeftBraceHasShift() { XCTAssertTrue(KeyPress.from(character: "{")!.modifiers.contains(ModifierKey.shift)) }
+  func testRightBraceHasShift() { XCTAssertTrue(KeyPress.from(character: "}")!.modifiers.contains(ModifierKey.shift)) }
+  func testHashHasShift() { XCTAssertTrue(KeyPress.from(character: "#")!.modifiers.contains(ModifierKey.shift)) }
 }

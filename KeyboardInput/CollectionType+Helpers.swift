@@ -8,11 +8,11 @@
 
 import Foundation
 
-extension CollectionType {
-  public func all(predicate: Generator.Element -> Bool) -> Bool {
+extension Collection {
+  public func all(_ predicate: (Iterator.Element) -> Bool) -> Bool {
     return self.reduce(true) { $0 && predicate($1) }
   }
-  public func any(predicate: Generator.Element -> Bool) -> Bool {
+  public func any(_ predicate: (Iterator.Element) -> Bool) -> Bool {
     return self.reduce(false) { $0 || predicate($1) }
   }
 }
