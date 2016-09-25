@@ -6,7 +6,7 @@
 //  Copyright © 2016 David Cairns. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 extension NSRunningApplication {
   class func app(withBundleIdentifier bundleIdentifier: String) -> NSRunningApplication! {

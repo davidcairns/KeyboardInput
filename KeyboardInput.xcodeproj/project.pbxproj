@@ -23,8 +23,6 @@
 		C8D200C51D1D971800765C6F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C01D1D971800765C6F /* Timer.swift */; };
 		C8D200C71D1D973700765C6F /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C61D1D973700765C6F /* DCViewController.swift */; };
 		C8D200CA1D1D976000765C6F /* KeyCodeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D200C91D1D976000765C6F /* KeyCodeConverter.m */; };
-		C8D200CD1D1D9B1C00765C6F /* DCProcessSerialNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D200CC1D1D9B1C00765C6F /* DCProcessSerialNumber.m */; };
-		C8D200D01D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D200CF1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m */; };
 		C8D200D21D1DA31200765C6F /* KeyDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D200D11D1DA31200765C6F /* KeyDestination.swift */; };
 		C8D98B011D2476EA007793F2 /* TextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B001D2476EA007793F2 /* TextTransformer.swift */; };
 		C8D98B031D247709007793F2 /* CommandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98B021D247709007793F2 /* CommandRecognizer.swift */; };
@@ -78,10 +76,6 @@
 		C8D200C61D1D973700765C6F /* DCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
 		C8D200C81D1D976000765C6F /* KeyCodeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyCodeConverter.h; sourceTree = "<group>"; };
 		C8D200C91D1D976000765C6F /* KeyCodeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyCodeConverter.m; sourceTree = "<group>"; };
-		C8D200CB1D1D9B1C00765C6F /* DCProcessSerialNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCProcessSerialNumber.h; sourceTree = "<group>"; };
-		C8D200CC1D1D9B1C00765C6F /* DCProcessSerialNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCProcessSerialNumber.m; sourceTree = "<group>"; };
-		C8D200CE1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunningApplication+ProcessSerialNumber.h"; sourceTree = "<group>"; };
-		C8D200CF1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunningApplication+ProcessSerialNumber.m"; sourceTree = "<group>"; };
 		C8D200D11D1DA31200765C6F /* KeyDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyDestination.swift; sourceTree = "<group>"; };
 		C8D98B001D2476EA007793F2 /* TextTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTransformer.swift; sourceTree = "<group>"; };
 		C8D98B021D247709007793F2 /* CommandRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRecognizer.swift; sourceTree = "<group>"; };
@@ -129,10 +123,6 @@
 		C89444F91D205AF200E1E202 /* App Communication */ = {
 			isa = PBXGroup;
 			children = (
-				C8D200CB1D1D9B1C00765C6F /* DCProcessSerialNumber.h */,
-				C8D200CC1D1D9B1C00765C6F /* DCProcessSerialNumber.m */,
-				C8D200CE1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.h */,
-				C8D200CF1D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m */,
 				C89444FB1D205C4600E1E202 /* NSRunningApplication+Getting.swift */,
 			);
 			name = "App Communication";
@@ -345,7 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8D200D01D1D9B4F00765C6F /* NSRunningApplication+ProcessSerialNumber.m in Sources */,
 				C8D98B091D247745007793F2 /* CommandProcessor.swift in Sources */,
 				C8269A7A1D202F7A00554E62 /* Keyboard.swift in Sources */,
 				C89444FC1D205C4600E1E202 /* NSRunningApplication+Getting.swift in Sources */,
@@ -367,7 +356,6 @@
 				C8D98B071D24772E007793F2 /* Array+Helpers.swift in Sources */,
 				C8D98B051D247721007793F2 /* InputElement.swift in Sources */,
 				C8BFD72B1D381D910001F1AF /* CollectionType+Helpers.swift in Sources */,
-				C8D200CD1D1D9B1C00765C6F /* DCProcessSerialNumber.m in Sources */,
 				C8D200C51D1D971800765C6F /* Timer.swift in Sources */,
 				C8D200C71D1D973700765C6F /* DCViewController.swift in Sources */,
 				C8D98B161D2480CA007793F2 /* KeyPress.swift in Sources */,
